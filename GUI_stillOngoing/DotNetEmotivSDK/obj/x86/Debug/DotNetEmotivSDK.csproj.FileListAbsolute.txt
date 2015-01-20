@@ -1,0 +1,14 @@
+D:\School\Spring2015\ECE415\Emotiv\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\build\Debug\DotNetEmotivSDK.dll
+D:\School\Spring2015\ECE415\Emotiv\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\build\Debug\DotNetEmotivSDK.pdb
+D:\School\Spring2015\ECE415\Emotiv\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.csprojResolveAssemblyReference.cache
+D:\School\Spring2015\ECE415\Emotiv\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.dll
+D:\School\Spring2015\ECE415\Emotiv\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.pdb
+D:\School\Spring2015\ECE415\BMW_Workspace\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\build\Debug\DotNetEmotivSDK.dll
+D:\School\Spring2015\ECE415\BMW_Workspace\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\build\Debug\DotNetEmotivSDK.pdb
+D:\School\Spring2015\ECE415\BMW_Workspace\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.csprojResolveAssemblyReference.cache
+D:\School\Spring2015\ECE415\BMW_Workspace\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.dll
+D:\School\Spring2015\ECE415\BMW_Workspace\adastra-2.5.1-src\adastra-2.5.1-src\src\Emotiv\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.pdb
+D:\tiffany\Documents\Visual Studio 2010\Projects\BMW\build\Debug\DotNetEmotivSDK.dll
+D:\tiffany\Documents\Visual Studio 2010\Projects\BMW\build\Debug\DotNetEmotivSDK.pdb
+D:\tiffany\Documents\Visual Studio 2010\Projects\BMW\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.dll
+D:\tiffany\Documents\Visual Studio 2010\Projects\BMW\DotNetEmotivSDK\obj\x86\Debug\DotNetEmotivSDK.pdb
