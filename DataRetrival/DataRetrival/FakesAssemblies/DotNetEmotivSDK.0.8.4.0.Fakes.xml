@@ -1,0 +1,1886 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DotNetEmotivSDK.0.8.4.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Emotiv.Fakes.ShimEdkDll">
+            <summary>Shim type of Emotiv.EdkDll</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.#ctor(Emotiv.EdkDll)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.Constructor">
+            <summary>Sets the shim of EdkDll.EdkDll()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivEventGetTypeIntPtr">
+            <summary>Sets the shim of EdkDll.EE_CognitivEventGetType(IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetActionSensitivityUInt32Int32OutInt32OutInt32OutInt32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetActionSensitivity(UInt32 userId, Int32&amp; pAction1SensitivityOut, Int32&amp; pAction2SensitivityOut, Int32&amp; pAction3SensitivityOut, Int32&amp; pAction4SensitivityOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetActionSkillRatingUInt32EdkDllEE_CognitivAction_tSingleOut">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetActionSkillRating(UInt32 userId, EE_CognitivAction_t action, Single&amp; pActionSkillRatingOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetActivationLevelUInt32Int32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetActivationLevel(UInt32 userId, Int32&amp; pLevelOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetActiveActionsUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetActiveActions(UInt32 userId, UInt32&amp; pActiveActionsOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetOverallSkillRatingUInt32SingleOut">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetOverallSkillRating(UInt32 userId, Single&amp; pOverallSkillRatingOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetSignatureCacheSizeUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetSignatureCacheSize(UInt32 userId, UInt32&amp; pSizeOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetSignatureCachingUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetSignatureCaching(UInt32 userId, UInt32&amp; pEnabledOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetTrainedSignatureActionsUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetTrainedSignatureActions(UInt32 userId, UInt32&amp; pTrainedActionsOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetTrainingActionUInt32EdkDllEE_CognitivAction_tOut">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetTrainingAction(UInt32 userId, EE_CognitivAction_t&amp; pActionOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivGetTrainingTimeUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_CognitivGetTrainingTime(UInt32 userId, UInt32&amp; pTrainingTimeOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetActionSensitivityUInt32Int32Int32Int32Int32">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetActionSensitivity(UInt32 userId, Int32 action1Sensitivity, Int32 action2Sensitivity, Int32 action3Sensitivity, Int32 action4Sensitivity)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetActivationLevelUInt32Int32">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetActivationLevel(UInt32 userId, Int32 level)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetActiveActionsUInt32UInt32">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetActiveActions(UInt32 userId, UInt32 activeActions)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetSignatureCacheSizeUInt32UInt32">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetSignatureCacheSize(UInt32 userId, UInt32 size)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetSignatureCachingUInt32UInt32">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetSignatureCaching(UInt32 userId, UInt32 enabled)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetTrainingActionUInt32EdkDllEE_CognitivAction_t">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetTrainingAction(UInt32 userId, EE_CognitivAction_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivSetTrainingControlUInt32EdkDllEE_CognitivTrainingControl_t">
+            <summary>Sets the shim of EdkDll.EE_CognitivSetTrainingControl(UInt32 userId, EE_CognitivTrainingControl_t control)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivStartSamplingNeutralUInt32">
+            <summary>Sets the shim of EdkDll.EE_CognitivStartSamplingNeutral(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_CognitivStopSamplingNeutralUInt32">
+            <summary>Sets the shim of EdkDll.EE_CognitivStopSamplingNeutral(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoEngineEventCreate">
+            <summary>Sets the shim of EdkDll.EE_EmoEngineEventCreate()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoEngineEventFreeIntPtr">
+            <summary>Sets the shim of EdkDll.EE_EmoEngineEventFree(IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoEngineEventGetEmoStateIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.EE_EmoEngineEventGetEmoState(IntPtr hEvent, IntPtr hEmoState)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoEngineEventGetTypeIntPtr">
+            <summary>Sets the shim of EdkDll.EE_EmoEngineEventGetType(IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoEngineEventGetUserIdIntPtrUInt32Out">
+            <summary>Sets the shim of EdkDll.EE_EmoEngineEventGetUserId(IntPtr hEvent, UInt32&amp; pUserIdOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoStateCreate">
+            <summary>Sets the shim of EdkDll.EE_EmoStateCreate()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EmoStateFreeIntPtr">
+            <summary>Sets the shim of EdkDll.EE_EmoStateFree(IntPtr hState)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EnableDiagnosticsStringInt32Int32">
+            <summary>Sets the shim of EdkDll.EE_EnableDiagnostics(String szFilename, Int32 fEnable, Int32 nReserved)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EngineClearEventQueueInt32">
+            <summary>Sets the shim of EdkDll.EE_EngineClearEventQueue(Int32 eventTypes)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EngineConnectString">
+            <summary>Sets the shim of EdkDll.EE_EngineConnect(String security)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EngineDisconnect">
+            <summary>Sets the shim of EdkDll.EE_EngineDisconnect()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EngineGetNextEventIntPtr">
+            <summary>Sets the shim of EdkDll.EE_EngineGetNextEvent(IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EngineGetNumUserUInt32Out">
+            <summary>Sets the shim of EdkDll.EE_EngineGetNumUser(UInt32&amp; pNumUserOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_EngineRemoteConnectStringUInt16">
+            <summary>Sets the shim of EdkDll.EE_EngineRemoteConnect(String szHost, UInt16 port)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivEventGetTypeIntPtr">
+            <summary>Sets the shim of EdkDll.EE_ExpressivEventGetType(IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivGetSignatureTypeUInt32EdkDllEE_ExpressivSignature_tOut">
+            <summary>Sets the shim of EdkDll.EE_ExpressivGetSignatureType(UInt32 userId, EE_ExpressivSignature_t&amp; pSigTypeOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivGetThresholdUInt32EdkDllEE_ExpressivAlgo_tEdkDllEE_ExpressivThreshold_tInt32Out">
+            <summary>Sets the shim of EdkDll.EE_ExpressivGetThreshold(UInt32 userId, EE_ExpressivAlgo_t algoName, EE_ExpressivThreshold_t thresholdName, Int32&amp; pValueOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivGetTrainedSignatureActionsUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_ExpressivGetTrainedSignatureActions(UInt32 userId, UInt32&amp; pTrainedActionsOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivGetTrainedSignatureAvailableUInt32Int32Out">
+            <summary>Sets the shim of EdkDll.EE_ExpressivGetTrainedSignatureAvailable(UInt32 userId, Int32&amp; pfAvailableOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivGetTrainingActionUInt32EdkDllEE_ExpressivAlgo_tOut">
+            <summary>Sets the shim of EdkDll.EE_ExpressivGetTrainingAction(UInt32 userId, EE_ExpressivAlgo_t&amp; pActionOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivGetTrainingTimeUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_ExpressivGetTrainingTime(UInt32 userId, UInt32&amp; pTrainingTimeOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivSetSignatureTypeUInt32EdkDllEE_ExpressivSignature_t">
+            <summary>Sets the shim of EdkDll.EE_ExpressivSetSignatureType(UInt32 userId, EE_ExpressivSignature_t sigType)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivSetThresholdUInt32EdkDllEE_ExpressivAlgo_tEdkDllEE_ExpressivThreshold_tInt32">
+            <summary>Sets the shim of EdkDll.EE_ExpressivSetThreshold(UInt32 userId, EE_ExpressivAlgo_t algoName, EE_ExpressivThreshold_t thresholdName, Int32 value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivSetTrainingActionUInt32EdkDllEE_ExpressivAlgo_t">
+            <summary>Sets the shim of EdkDll.EE_ExpressivSetTrainingAction(UInt32 userId, EE_ExpressivAlgo_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ExpressivSetTrainingControlUInt32EdkDllEE_ExpressivTrainingControl_t">
+            <summary>Sets the shim of EdkDll.EE_ExpressivSetTrainingControl(UInt32 userId, EE_ExpressivTrainingControl_t control)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_GetBaseProfileIntPtr">
+            <summary>Sets the shim of EdkDll.EE_GetBaseProfile(IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_GetRemainTrialDaysInt32Out">
+            <summary>Sets the shim of EdkDll.EE_GetRemainTrialDays(Int32&amp; days)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_GetUserProfileBytesIntPtrByteArrayUInt32">
+            <summary>Sets the shim of EdkDll.EE_GetUserProfileBytes(IntPtr hEvt, Byte[] destBuffer, UInt32 length)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_GetUserProfileSizeIntPtrUInt32Out">
+            <summary>Sets the shim of EdkDll.EE_GetUserProfileSize(IntPtr hEvt, UInt32&amp; pProfileSizeOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_GetUserProfileUInt32IntPtr">
+            <summary>Sets the shim of EdkDll.EE_GetUserProfile(UInt32 userId, IntPtr hEvent)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_HardwareGetVersionUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_HardwareGetVersion(UInt32 userId, UInt32&amp; pHwVersionOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_HeadsetGetGyroDeltaUInt32Int32OutInt32Out">
+            <summary>Sets the shim of EdkDll.EE_HeadsetGetGyroDelta(UInt32 userId, Int32&amp; pXOut, Int32&amp; pYOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_HeadsetGetSensorDetailsEdkDllEE_InputChannels_tEdkDllInputSensorDescriptor_tOut">
+            <summary>Sets the shim of EdkDll.EE_HeadsetGetSensorDetails(EE_InputChannels_t channelId, InputSensorDescriptor_t&amp; pDescriptorOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_HeadsetGyroRezeroUInt32">
+            <summary>Sets the shim of EdkDll.EE_HeadsetGyroRezero(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_LoadUserProfileUInt32String">
+            <summary>Sets the shim of EdkDll.EE_LoadUserProfile(UInt32 userID, String szInputFilename)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationDisable">
+            <summary>Sets the shim of EdkDll.EE_OptimizationDisable()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationEnableIntPtr">
+            <summary>Sets the shim of EdkDll.EE_OptimizationEnable(IntPtr hParam)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationGetParamIntPtr">
+            <summary>Sets the shim of EdkDll.EE_OptimizationGetParam(IntPtr hParam)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationGetVitalAlgorithmIntPtrEdkDllEE_EmotivSuite_tUInt32Out">
+            <summary>Sets the shim of EdkDll.EE_OptimizationGetVitalAlgorithm(IntPtr hParam, EE_EmotivSuite_t suite, UInt32&amp; pVitalAlgorithmBitVectorOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationIsEnabledBooleanOut">
+            <summary>Sets the shim of EdkDll.EE_OptimizationIsEnabled(Boolean&amp; pEnabledOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationParamCreate">
+            <summary>Sets the shim of EdkDll.EE_OptimizationParamCreate()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationParamFreeIntPtr">
+            <summary>Sets the shim of EdkDll.EE_OptimizationParamFree(IntPtr hParam)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_OptimizationSetVitalAlgorithmIntPtrEdkDllEE_EmotivSuite_tUInt32">
+            <summary>Sets the shim of EdkDll.EE_OptimizationSetVitalAlgorithm(IntPtr hParam, EE_EmotivSuite_t suite, UInt32 vitalAlgorithmBitVector)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ProfileEventCreate">
+            <summary>Sets the shim of EdkDll.EE_ProfileEventCreate()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_ResetDetectionUInt32EdkDllEE_EmotivSuite_tUInt32">
+            <summary>Sets the shim of EdkDll.EE_ResetDetection(UInt32 userId, EE_EmotivSuite_t suite, UInt32 detectionBitVector)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_SaveUserProfileUInt32String">
+            <summary>Sets the shim of EdkDll.EE_SaveUserProfile(UInt32 userID, String szOutputFilename)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_SetHardwarePlayerDisplayUInt32UInt32">
+            <summary>Sets the shim of EdkDll.EE_SetHardwarePlayerDisplay(UInt32 userId, UInt32 playerNum)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_SetUserProfileUInt32ByteArrayUInt32">
+            <summary>Sets the shim of EdkDll.EE_SetUserProfile(UInt32 userId, Byte[] profileBuffer, UInt32 length)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.EE_SoftwareGetVersionStringBuilderUInt32UInt32Out">
+            <summary>Sets the shim of EdkDll.EE_SoftwareGetVersion(StringBuilder pszVersionOut, UInt32 nVersionChars, UInt32&amp; pBuildNumOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivEqualIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivEqual(IntPtr a, IntPtr b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetEngagementBoredomModelParamsIntPtrDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetEngagementBoredomModelParams(IntPtr state, Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetEngagementBoredomScoreIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetEngagementBoredomScore(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetExcitementLongTermScoreIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetExcitementLongTermScore(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetExcitementShortTermModelParamsIntPtrDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetExcitementShortTermModelParams(IntPtr state, Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetExcitementShortTermScoreIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetExcitementShortTermScore(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetFrustrationModelParamsIntPtrDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetFrustrationModelParams(IntPtr state, Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetFrustrationScoreIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetFrustrationScore(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetMeditationModelParamsIntPtrDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetMeditationModelParams(IntPtr state, Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetMeditationScoreIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetMeditationScore(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetValenceModelParamsIntPtrDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetValenceModelParams(IntPtr state, Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivGetValenceScoreIntPtr">
+            <summary>Sets the shim of EdkDll.ES_AffectivGetValenceScore(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_AffectivIsActiveIntPtrEdkDllEE_AffectivAlgo_t">
+            <summary>Sets the shim of EdkDll.ES_AffectivIsActive(IntPtr state, EE_AffectivAlgo_t type)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_CognitivEqualIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.ES_CognitivEqual(IntPtr a, IntPtr b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_CognitivGetCurrentActionIntPtr">
+            <summary>Sets the shim of EdkDll.ES_CognitivGetCurrentAction(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_CognitivGetCurrentActionPowerIntPtr">
+            <summary>Sets the shim of EdkDll.ES_CognitivGetCurrentActionPower(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_CognitivGetCurrentLevelRatingIntPtr">
+            <summary>Sets the shim of EdkDll.ES_CognitivGetCurrentLevelRating(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_CognitivIsActiveIntPtr">
+            <summary>Sets the shim of EdkDll.ES_CognitivIsActive(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_CopyIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.ES_Copy(IntPtr a, IntPtr b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_Create">
+            <summary>Sets the shim of EdkDll.ES_Create()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_EmoEngineEqualIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.ES_EmoEngineEqual(IntPtr a, IntPtr b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_EqualIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.ES_Equal(IntPtr a, IntPtr b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivEqualIntPtrIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivEqual(IntPtr a, IntPtr b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetClenchExtentIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetClenchExtent(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetEyeLocationIntPtrSingleOutSingleOut">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetEyeLocation(IntPtr state, Single&amp; x, Single&amp; y)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetEyebrowExtentIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetEyebrowExtent(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetEyelidStateIntPtrSingleOutSingleOut">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetEyelidState(IntPtr state, Single&amp; leftEye, Single&amp; rightEye)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetLowerFaceActionIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetLowerFaceAction(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetLowerFaceActionPowerIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetLowerFaceActionPower(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetSmileExtentIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetSmileExtent(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetUpperFaceActionIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetUpperFaceAction(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivGetUpperFaceActionPowerIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivGetUpperFaceActionPower(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsActiveIntPtrEdkDllEE_ExpressivAlgo_t">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsActive(IntPtr state, EE_ExpressivAlgo_t type)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsBlinkIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsBlink(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsEyesOpenIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsEyesOpen(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsLeftWinkIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsLeftWink(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsLookingDownIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsLookingDown(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsLookingLeftIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsLookingLeft(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsLookingRightIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsLookingRight(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsLookingUpIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsLookingUp(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_ExpressivIsRightWinkIntPtr">
+            <summary>Sets the shim of EdkDll.ES_ExpressivIsRightWink(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_FreeIntPtr">
+            <summary>Sets the shim of EdkDll.ES_Free(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetBatteryChargeLevelIntPtrInt32OutInt32Out">
+            <summary>Sets the shim of EdkDll.ES_GetBatteryChargeLevel(IntPtr state, Int32&amp; chargeLevel, Int32&amp; maxChargeLevel)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetContactQualityFromAllChannelsIntPtrEdkDllEE_EEG_ContactQuality_tArrayOut">
+            <summary>Sets the shim of EdkDll.ES_GetContactQualityFromAllChannels(IntPtr state, EE_EEG_ContactQuality_t[]&amp; contactQuality)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetContactQualityIntPtrInt32">
+            <summary>Sets the shim of EdkDll.ES_GetContactQuality(IntPtr state, Int32 electroIdx)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetHeadsetOnIntPtr">
+            <summary>Sets the shim of EdkDll.ES_GetHeadsetOn(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetNumContactQualityChannelsIntPtr">
+            <summary>Sets the shim of EdkDll.ES_GetNumContactQualityChannels(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetTimeFromStartIntPtr">
+            <summary>Sets the shim of EdkDll.ES_GetTimeFromStart(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_GetWirelessSignalStatusIntPtr">
+            <summary>Sets the shim of EdkDll.ES_GetWirelessSignalStatus(IntPtr state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ES_InitIntPtr">
+            <summary>Sets the shim of EdkDll.ES_Init(IntPtr state)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEdkDll.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t">
+            <summary>Shim type of Emotiv.EdkDll+InputSensorDescriptor_t</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.#ctor(Emotiv.EdkDll.InputSensorDescriptor_t)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.Constructor">
+            <summary>Sets the shim of InputSensorDescriptor_t.InputSensorDescriptor_t()</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEdkDll.ShimInputSensorDescriptor_t.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoEngine">
+            <summary>Shim type of Emotiv.EmoEngine</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngine.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngine.#ctor(Emotiv.EmoEngine)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngine.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngine.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AffectivEmoStateUpdatedAddEmoEngineAffectivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_AffectivEmoStateUpdated(AffectivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AffectivEmoStateUpdatedRemoveEmoEngineAffectivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_AffectivEmoStateUpdated(AffectivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivAutoSamplingNeutralCompletedAddEmoEngineCognitivAutoSamplingNeutralCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivAutoSamplingNeutralCompleted(CognitivAutoSamplingNeutralCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivAutoSamplingNeutralCompletedRemoveEmoEngineCognitivAutoSamplingNeutralCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivAutoSamplingNeutralCompleted(CognitivAutoSamplingNeutralCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivEmoStateUpdatedAddEmoEngineCognitivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivEmoStateUpdated(CognitivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivEmoStateUpdatedRemoveEmoEngineCognitivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivEmoStateUpdated(CognitivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetActionSkillRatingUInt32EdkDllEE_CognitivAction_t">
+            <summary>Sets the shim of EmoEngine.CognitivGetActionSkillRating(UInt32 userId, EE_CognitivAction_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetActivationLevelUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetActivationLevel(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetActiveActionsUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetActiveActions(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetOverallSkillRatingUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetOverallSkillRating(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetSignatureCacheSizeUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetSignatureCacheSize(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetSignatureCachingUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetSignatureCaching(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetTrainedSignatureActionsUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetTrainedSignatureActions(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetTrainingActionUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetTrainingAction(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivGetTrainingTimeUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetTrainingTime(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetActionSensitivityUInt32Int32Int32Int32Int32">
+            <summary>Sets the shim of EmoEngine.CognitivSetActionSensitivity(UInt32 userId, Int32 action1Sensitivity, Int32 action2Sensitivity, Int32 action3Sensitivity, Int32 action4Sensitivity)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetActivationLevelUInt32Int32">
+            <summary>Sets the shim of EmoEngine.CognitivSetActivationLevel(UInt32 userId, Int32 level)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetActiveActionsUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.CognitivSetActiveActions(UInt32 userId, UInt32 activeActions)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetSignatureCacheSizeUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.CognitivSetSignatureCacheSize(UInt32 userId, UInt32 size)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetSignatureCachingUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.CognitivSetSignatureCaching(UInt32 userId, UInt32 enabled)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetTrainingActionUInt32EdkDllEE_CognitivAction_t">
+            <summary>Sets the shim of EmoEngine.CognitivSetTrainingAction(UInt32 userId, EE_CognitivAction_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSetTrainingControlUInt32EdkDllEE_CognitivTrainingControl_t">
+            <summary>Sets the shim of EmoEngine.CognitivSetTrainingControl(UInt32 userId, EE_CognitivTrainingControl_t control)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSignatureUpdatedAddEmoEngineCognitivSignatureUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivSignatureUpdated(CognitivSignatureUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivSignatureUpdatedRemoveEmoEngineCognitivSignatureUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivSignatureUpdated(CognitivSignatureUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivStartSamplingNeutralUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivStartSamplingNeutral(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivStopSamplingNeutralUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivStopSamplingNeutral(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingCompletedAddEmoEngineCognitivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingCompleted(CognitivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingCompletedRemoveEmoEngineCognitivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingCompleted(CognitivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingDataErasedAddEmoEngineCognitivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingDataErased(CognitivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingDataErasedRemoveEmoEngineCognitivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingDataErased(CognitivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingFailedAddEmoEngineCognitivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingFailed(CognitivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingFailedRemoveEmoEngineCognitivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingFailed(CognitivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingRejectedAddEmoEngineCognitivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingRejected(CognitivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingRejectedRemoveEmoEngineCognitivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingRejected(CognitivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingResetAddEmoEngineCognitivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingReset(CognitivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingResetRemoveEmoEngineCognitivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingReset(CognitivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingStartedAddEmoEngineCognitivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingStarted(CognitivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingStartedRemoveEmoEngineCognitivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingStarted(CognitivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingSucceededAddEmoEngineCognitivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingSucceeded(CognitivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.CognitivTrainingSucceededRemoveEmoEngineCognitivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingSucceeded(CognitivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.Connect">
+            <summary>Sets the shim of EmoEngine.Connect()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.Constructor">
+            <summary>Sets the shim of EmoEngine.EmoEngine()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.Disconnect">
+            <summary>Sets the shim of EmoEngine.Disconnect()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EE_GetRemainTrialDays">
+            <summary>Sets the shim of EmoEngine.EE_GetRemainTrialDays()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EE_SaveUserProfileUInt32String">
+            <summary>Sets the shim of EmoEngine.EE_SaveUserProfile(UInt32 userID, String szOutputFilename)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoEngineConnectedAddEmoEngineEmoEngineConnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoEngineConnected(EmoEngineConnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoEngineConnectedRemoveEmoEngineEmoEngineConnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoEngineConnected(EmoEngineConnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoEngineDisconnectedAddEmoEngineEmoEngineDisconnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoEngineDisconnected(EmoEngineDisconnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoEngineDisconnectedRemoveEmoEngineEmoEngineDisconnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoEngineDisconnected(EmoEngineDisconnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoEngineEmoStateUpdatedAddEmoEngineEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoEngineEmoStateUpdated(EmoEngineEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoEngineEmoStateUpdatedRemoveEmoEngineEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoEngineEmoStateUpdated(EmoEngineEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoStateUpdatedAddEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoStateUpdated(EmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EmoStateUpdatedRemoveEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoStateUpdated(EmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.EngineGetNumUser">
+            <summary>Sets the shim of EmoEngine.EngineGetNumUser()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivEmoStateUpdatedAddEmoEngineExpressivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivEmoStateUpdated(ExpressivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivEmoStateUpdatedRemoveEmoEngineExpressivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivEmoStateUpdated(ExpressivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivGetSignatureTypeUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetSignatureType(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivGetThresholdUInt32EdkDllEE_ExpressivAlgo_tEdkDllEE_ExpressivThreshold_t">
+            <summary>Sets the shim of EmoEngine.ExpressivGetThreshold(UInt32 userId, EE_ExpressivAlgo_t algoName, EE_ExpressivThreshold_t thresholdName)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivGetTrainedSignatureActionsUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainedSignatureActions(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivGetTrainedSignatureAvailableUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainedSignatureAvailable(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivGetTrainingActionUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainingAction(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivGetTrainingTimeUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainingTime(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivSetSignatureTypeUInt32EdkDllEE_ExpressivSignature_t">
+            <summary>Sets the shim of EmoEngine.ExpressivSetSignatureType(UInt32 userId, EE_ExpressivSignature_t sigType)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivSetThresholdUInt32EdkDllEE_ExpressivAlgo_tEdkDllEE_ExpressivThreshold_tInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivSetThreshold(UInt32 userId, EE_ExpressivAlgo_t algoName, EE_ExpressivThreshold_t thresholdName, Int32 value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivSetTrainingActionUInt32EdkDllEE_ExpressivAlgo_t">
+            <summary>Sets the shim of EmoEngine.ExpressivSetTrainingAction(UInt32 userId, EE_ExpressivAlgo_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivSetTrainingControlUInt32EdkDllEE_ExpressivTrainingControl_t">
+            <summary>Sets the shim of EmoEngine.ExpressivSetTrainingControl(UInt32 userId, EE_ExpressivTrainingControl_t control)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingCompletedAddEmoEngineExpressivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingCompleted(ExpressivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingCompletedRemoveEmoEngineExpressivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingCompleted(ExpressivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingDataErasedAddEmoEngineExpressivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingDataErased(ExpressivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingDataErasedRemoveEmoEngineExpressivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingDataErased(ExpressivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingFailedAddEmoEngineExpressivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingFailed(ExpressivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingFailedRemoveEmoEngineExpressivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingFailed(ExpressivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingRejectedAddEmoEngineExpressivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingRejected(ExpressivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingRejectedRemoveEmoEngineExpressivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingRejected(ExpressivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingResetAddEmoEngineExpressivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingReset(ExpressivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingResetRemoveEmoEngineExpressivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingReset(ExpressivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingStartedAddEmoEngineExpressivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingStarted(ExpressivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingStartedRemoveEmoEngineExpressivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingStarted(ExpressivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingSucceededAddEmoEngineExpressivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingSucceeded(ExpressivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ExpressivTrainingSucceededRemoveEmoEngineExpressivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingSucceeded(ExpressivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.GetUserProfileUInt32">
+            <summary>Sets the shim of EmoEngine.GetUserProfile(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.HardwareGetVersionUInt32">
+            <summary>Sets the shim of EmoEngine.HardwareGetVersion(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.HeadsetGetGyroDeltaUInt32Int32OutInt32Out">
+            <summary>Sets the shim of EmoEngine.HeadsetGetGyroDelta(UInt32 userId, Int32&amp; pXOut, Int32&amp; pYOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.HeadsetGetSensorDetailsEdkDllEE_InputChannels_t">
+            <summary>Sets the shim of EmoEngine.HeadsetGetSensorDetails(EE_InputChannels_t channelId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.HeadsetGyroRezeroUInt32">
+            <summary>Sets the shim of EmoEngine.HeadsetGyroRezero(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.InstanceGet">
+            <summary>Sets the shim of EmoEngine.get_Instance()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.InternalStateChangedAddEmoEngineInternalStateChangedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_InternalStateChanged(InternalStateChangedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.InternalStateChangedRemoveEmoEngineInternalStateChangedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_InternalStateChanged(InternalStateChangedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.LoadUserProfileUInt32String">
+            <summary>Sets the shim of EmoEngine.LoadUserProfile(UInt32 userID, String szInputFilename)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnAffectivEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnAffectivEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivAutoSamplingNeutralCompletedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivAutoSamplingNeutralCompleted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivSignatureUpdatedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivSignatureUpdated(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingCompletedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingCompleted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingDataErasedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingDataErased(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingFailedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingFailed(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingRejectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingRejected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingResetEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingReset(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingStartedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingStarted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnCognitivTrainingSucceededEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingSucceeded(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnEmoEngineConnectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoEngineConnected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnEmoEngineDisconnectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoEngineDisconnected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnEmoEngineEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoEngineEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingCompletedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingCompleted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingDataErasedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingDataErased(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingFailedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingFailed(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingRejectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingRejected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingResetEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingReset(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingStartedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingStarted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnExpressivTrainingSucceededEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingSucceeded(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnInternalStateChangedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnInternalStateChanged(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnUserAddedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnUserAdded(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OnUserRemovedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnUserRemoved(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OptimizationDisable">
+            <summary>Sets the shim of EmoEngine.OptimizationDisable()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OptimizationEnableOptimizationParam">
+            <summary>Sets the shim of EmoEngine.OptimizationEnable(OptimizationParam param)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OptimizationGetParam">
+            <summary>Sets the shim of EmoEngine.OptimizationGetParam()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.OptimizationIsEnabled">
+            <summary>Sets the shim of EmoEngine.OptimizationIsEnabled()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ProcessEvents">
+            <summary>Sets the shim of EmoEngine.ProcessEvents()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ProcessEventsInt32">
+            <summary>Sets the shim of EmoEngine.ProcessEvents(Int32 maxTimeMilliseconds)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.RemoteConnectStringUInt16">
+            <summary>Sets the shim of EmoEngine.RemoteConnect(String ip, UInt16 port)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.ResetDetectionUInt32EdkDllEE_EmotivSuite_tUInt32">
+            <summary>Sets the shim of EmoEngine.ResetDetection(UInt32 userId, EE_EmotivSuite_t suite, UInt32 detectionBitVector)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.SetHardwarePlayerDisplayUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.SetHardwarePlayerDisplay(UInt32 userId, UInt32 playerNum)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.SetUserProfileUInt32Profile">
+            <summary>Sets the shim of EmoEngine.SetUserProfile(UInt32 userId, Profile profile)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.SoftwareGetVersionStringOutUInt32Out">
+            <summary>Sets the shim of EmoEngine.SoftwareGetVersion(String&amp; pszVersionOut, UInt32&amp; pBuildNumOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.UserAddedAddEmoEngineUserAddedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_UserAdded(UserAddedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.UserAddedRemoveEmoEngineUserAddedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_UserAdded(UserAddedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.UserRemovedAddEmoEngineUserRemovedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_UserRemoved(UserRemovedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.UserRemovedRemoveEmoEngineUserRemovedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_UserRemoved(UserRemovedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.errorHandlerInt32">
+            <summary>Sets the shim of EmoEngine.errorHandler(Int32 errorCode)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoEngine.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.AffectivEmoStateUpdatedAddEmoEngineAffectivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_AffectivEmoStateUpdated(AffectivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.AffectivEmoStateUpdatedRemoveEmoEngineAffectivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_AffectivEmoStateUpdated(AffectivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivAutoSamplingNeutralCompletedAddEmoEngineCognitivAutoSamplingNeutralCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivAutoSamplingNeutralCompleted(CognitivAutoSamplingNeutralCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivAutoSamplingNeutralCompletedRemoveEmoEngineCognitivAutoSamplingNeutralCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivAutoSamplingNeutralCompleted(CognitivAutoSamplingNeutralCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivEmoStateUpdatedAddEmoEngineCognitivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivEmoStateUpdated(CognitivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivEmoStateUpdatedRemoveEmoEngineCognitivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivEmoStateUpdated(CognitivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetActionSensitivityUInt32Int32OutInt32OutInt32OutInt32Out">
+            <summary>Sets the shim of EmoEngine.CognitivGetActionSensitivity(UInt32 userId, Int32&amp; pAction1SensitivityOut, Int32&amp; pAction2SensitivityOut, Int32&amp; pAction3SensitivityOut, Int32&amp; pAction4SensitivityOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetActionSkillRatingUInt32EdkDllEE_CognitivAction_t">
+            <summary>Sets the shim of EmoEngine.CognitivGetActionSkillRating(UInt32 userId, EE_CognitivAction_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetActivationLevelUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetActivationLevel(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetActiveActionsUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetActiveActions(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetOverallSkillRatingUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetOverallSkillRating(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetSignatureCacheSizeUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetSignatureCacheSize(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetSignatureCachingUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetSignatureCaching(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetTrainedSignatureActionsUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetTrainedSignatureActions(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetTrainingActionUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetTrainingAction(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivGetTrainingTimeUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivGetTrainingTime(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetActionSensitivityUInt32Int32Int32Int32Int32">
+            <summary>Sets the shim of EmoEngine.CognitivSetActionSensitivity(UInt32 userId, Int32 action1Sensitivity, Int32 action2Sensitivity, Int32 action3Sensitivity, Int32 action4Sensitivity)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetActivationLevelUInt32Int32">
+            <summary>Sets the shim of EmoEngine.CognitivSetActivationLevel(UInt32 userId, Int32 level)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetActiveActionsUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.CognitivSetActiveActions(UInt32 userId, UInt32 activeActions)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetSignatureCacheSizeUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.CognitivSetSignatureCacheSize(UInt32 userId, UInt32 size)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetSignatureCachingUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.CognitivSetSignatureCaching(UInt32 userId, UInt32 enabled)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetTrainingActionUInt32EdkDllEE_CognitivAction_t">
+            <summary>Sets the shim of EmoEngine.CognitivSetTrainingAction(UInt32 userId, EE_CognitivAction_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSetTrainingControlUInt32EdkDllEE_CognitivTrainingControl_t">
+            <summary>Sets the shim of EmoEngine.CognitivSetTrainingControl(UInt32 userId, EE_CognitivTrainingControl_t control)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSignatureUpdatedAddEmoEngineCognitivSignatureUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivSignatureUpdated(CognitivSignatureUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivSignatureUpdatedRemoveEmoEngineCognitivSignatureUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivSignatureUpdated(CognitivSignatureUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivStartSamplingNeutralUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivStartSamplingNeutral(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivStopSamplingNeutralUInt32">
+            <summary>Sets the shim of EmoEngine.CognitivStopSamplingNeutral(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingCompletedAddEmoEngineCognitivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingCompleted(CognitivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingCompletedRemoveEmoEngineCognitivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingCompleted(CognitivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingDataErasedAddEmoEngineCognitivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingDataErased(CognitivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingDataErasedRemoveEmoEngineCognitivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingDataErased(CognitivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingFailedAddEmoEngineCognitivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingFailed(CognitivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingFailedRemoveEmoEngineCognitivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingFailed(CognitivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingRejectedAddEmoEngineCognitivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingRejected(CognitivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingRejectedRemoveEmoEngineCognitivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingRejected(CognitivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingResetAddEmoEngineCognitivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingReset(CognitivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingResetRemoveEmoEngineCognitivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingReset(CognitivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingStartedAddEmoEngineCognitivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingStarted(CognitivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingStartedRemoveEmoEngineCognitivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingStarted(CognitivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingSucceededAddEmoEngineCognitivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.add_CognitivTrainingSucceeded(CognitivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.CognitivTrainingSucceededRemoveEmoEngineCognitivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_CognitivTrainingSucceeded(CognitivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.Connect">
+            <summary>Sets the shim of EmoEngine.Connect()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.Disconnect">
+            <summary>Sets the shim of EmoEngine.Disconnect()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EE_GetRemainTrialDays">
+            <summary>Sets the shim of EmoEngine.EE_GetRemainTrialDays()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EE_SaveUserProfileUInt32String">
+            <summary>Sets the shim of EmoEngine.EE_SaveUserProfile(UInt32 userID, String szOutputFilename)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoEngineConnectedAddEmoEngineEmoEngineConnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoEngineConnected(EmoEngineConnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoEngineConnectedRemoveEmoEngineEmoEngineConnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoEngineConnected(EmoEngineConnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoEngineDisconnectedAddEmoEngineEmoEngineDisconnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoEngineDisconnected(EmoEngineDisconnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoEngineDisconnectedRemoveEmoEngineEmoEngineDisconnectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoEngineDisconnected(EmoEngineDisconnectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoEngineEmoStateUpdatedAddEmoEngineEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoEngineEmoStateUpdated(EmoEngineEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoEngineEmoStateUpdatedRemoveEmoEngineEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoEngineEmoStateUpdated(EmoEngineEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoStateUpdatedAddEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_EmoStateUpdated(EmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EmoStateUpdatedRemoveEmoEngineEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_EmoStateUpdated(EmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.EngineGetNumUser">
+            <summary>Sets the shim of EmoEngine.EngineGetNumUser()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivEmoStateUpdatedAddEmoEngineExpressivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivEmoStateUpdated(ExpressivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivEmoStateUpdatedRemoveEmoEngineExpressivEmoStateUpdatedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivEmoStateUpdated(ExpressivEmoStateUpdatedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivGetSignatureTypeUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetSignatureType(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivGetThresholdUInt32EdkDllEE_ExpressivAlgo_tEdkDllEE_ExpressivThreshold_t">
+            <summary>Sets the shim of EmoEngine.ExpressivGetThreshold(UInt32 userId, EE_ExpressivAlgo_t algoName, EE_ExpressivThreshold_t thresholdName)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivGetTrainedSignatureActionsUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainedSignatureActions(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivGetTrainedSignatureAvailableUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainedSignatureAvailable(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivGetTrainingActionUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainingAction(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivGetTrainingTimeUInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivGetTrainingTime(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivSetSignatureTypeUInt32EdkDllEE_ExpressivSignature_t">
+            <summary>Sets the shim of EmoEngine.ExpressivSetSignatureType(UInt32 userId, EE_ExpressivSignature_t sigType)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivSetThresholdUInt32EdkDllEE_ExpressivAlgo_tEdkDllEE_ExpressivThreshold_tInt32">
+            <summary>Sets the shim of EmoEngine.ExpressivSetThreshold(UInt32 userId, EE_ExpressivAlgo_t algoName, EE_ExpressivThreshold_t thresholdName, Int32 value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivSetTrainingActionUInt32EdkDllEE_ExpressivAlgo_t">
+            <summary>Sets the shim of EmoEngine.ExpressivSetTrainingAction(UInt32 userId, EE_ExpressivAlgo_t action)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivSetTrainingControlUInt32EdkDllEE_ExpressivTrainingControl_t">
+            <summary>Sets the shim of EmoEngine.ExpressivSetTrainingControl(UInt32 userId, EE_ExpressivTrainingControl_t control)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingCompletedAddEmoEngineExpressivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingCompleted(ExpressivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingCompletedRemoveEmoEngineExpressivTrainingCompletedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingCompleted(ExpressivTrainingCompletedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingDataErasedAddEmoEngineExpressivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingDataErased(ExpressivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingDataErasedRemoveEmoEngineExpressivTrainingDataErasedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingDataErased(ExpressivTrainingDataErasedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingFailedAddEmoEngineExpressivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingFailed(ExpressivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingFailedRemoveEmoEngineExpressivTrainingFailedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingFailed(ExpressivTrainingFailedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingRejectedAddEmoEngineExpressivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingRejected(ExpressivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingRejectedRemoveEmoEngineExpressivTrainingRejectedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingRejected(ExpressivTrainingRejectedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingResetAddEmoEngineExpressivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingReset(ExpressivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingResetRemoveEmoEngineExpressivTrainingResetEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingReset(ExpressivTrainingResetEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingStartedAddEmoEngineExpressivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingStarted(ExpressivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingStartedRemoveEmoEngineExpressivTrainingStartedEventEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingStarted(ExpressivTrainingStartedEventEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingSucceededAddEmoEngineExpressivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.add_ExpressivTrainingSucceeded(ExpressivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ExpressivTrainingSucceededRemoveEmoEngineExpressivTrainingSucceededEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_ExpressivTrainingSucceeded(ExpressivTrainingSucceededEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.GetUserProfileUInt32">
+            <summary>Sets the shim of EmoEngine.GetUserProfile(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.HardwareGetVersionUInt32">
+            <summary>Sets the shim of EmoEngine.HardwareGetVersion(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.HeadsetGetGyroDeltaUInt32Int32OutInt32Out">
+            <summary>Sets the shim of EmoEngine.HeadsetGetGyroDelta(UInt32 userId, Int32&amp; pXOut, Int32&amp; pYOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.HeadsetGetSensorDetailsEdkDllEE_InputChannels_t">
+            <summary>Sets the shim of EmoEngine.HeadsetGetSensorDetails(EE_InputChannels_t channelId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.HeadsetGyroRezeroUInt32">
+            <summary>Sets the shim of EmoEngine.HeadsetGyroRezero(UInt32 userId)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.InternalStateChangedAddEmoEngineInternalStateChangedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_InternalStateChanged(InternalStateChangedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.InternalStateChangedRemoveEmoEngineInternalStateChangedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_InternalStateChanged(InternalStateChangedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.LoadUserProfileUInt32String">
+            <summary>Sets the shim of EmoEngine.LoadUserProfile(UInt32 userID, String szInputFilename)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnAffectivEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnAffectivEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivAutoSamplingNeutralCompletedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivAutoSamplingNeutralCompleted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivSignatureUpdatedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivSignatureUpdated(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingCompletedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingCompleted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingDataErasedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingDataErased(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingFailedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingFailed(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingRejectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingRejected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingResetEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingReset(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingStartedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingStarted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnCognitivTrainingSucceededEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnCognitivTrainingSucceeded(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnEmoEngineConnectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoEngineConnected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnEmoEngineDisconnectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoEngineDisconnected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnEmoEngineEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoEngineEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivEmoStateUpdatedEmoStateUpdatedEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivEmoStateUpdated(EmoStateUpdatedEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingCompletedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingCompleted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingDataErasedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingDataErased(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingFailedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingFailed(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingRejectedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingRejected(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingResetEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingReset(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingStartedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingStarted(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnExpressivTrainingSucceededEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnExpressivTrainingSucceeded(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnInternalStateChangedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnInternalStateChanged(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnUserAddedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnUserAdded(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OnUserRemovedEmoEngineEventArgs">
+            <summary>Sets the shim of EmoEngine.OnUserRemoved(EmoEngineEventArgs e)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OptimizationDisable">
+            <summary>Sets the shim of EmoEngine.OptimizationDisable()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OptimizationEnableOptimizationParam">
+            <summary>Sets the shim of EmoEngine.OptimizationEnable(OptimizationParam param)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OptimizationGetParam">
+            <summary>Sets the shim of EmoEngine.OptimizationGetParam()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.OptimizationIsEnabled">
+            <summary>Sets the shim of EmoEngine.OptimizationIsEnabled()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ProcessEvents">
+            <summary>Sets the shim of EmoEngine.ProcessEvents()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ProcessEventsInt32">
+            <summary>Sets the shim of EmoEngine.ProcessEvents(Int32 maxTimeMilliseconds)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.RemoteConnectStringUInt16">
+            <summary>Sets the shim of EmoEngine.RemoteConnect(String ip, UInt16 port)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.ResetDetectionUInt32EdkDllEE_EmotivSuite_tUInt32">
+            <summary>Sets the shim of EmoEngine.ResetDetection(UInt32 userId, EE_EmotivSuite_t suite, UInt32 detectionBitVector)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.SetHardwarePlayerDisplayUInt32UInt32">
+            <summary>Sets the shim of EmoEngine.SetHardwarePlayerDisplay(UInt32 userId, UInt32 playerNum)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.SetUserProfileUInt32Profile">
+            <summary>Sets the shim of EmoEngine.SetUserProfile(UInt32 userId, Profile profile)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.SoftwareGetVersionStringOutUInt32Out">
+            <summary>Sets the shim of EmoEngine.SoftwareGetVersion(String&amp; pszVersionOut, UInt32&amp; pBuildNumOut)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.UserAddedAddEmoEngineUserAddedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_UserAdded(UserAddedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.UserAddedRemoveEmoEngineUserAddedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_UserAdded(UserAddedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.UserRemovedAddEmoEngineUserRemovedEventHandler">
+            <summary>Sets the shim of EmoEngine.add_UserRemoved(UserRemovedEventHandler value)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngine.AllInstances.UserRemovedRemoveEmoEngineUserRemovedEventHandler">
+            <summary>Sets the shim of EmoEngine.remove_UserRemoved(UserRemovedEventHandler value)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoEngineEventArgs">
+            <summary>Shim type of Emotiv.EmoEngineEventArgs</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineEventArgs.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineEventArgs.#ctor(Emotiv.EmoEngineEventArgs)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineEventArgs.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineEventArgs.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineEventArgs.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineEventArgs.ConstructorUInt32">
+            <summary>Sets the shim of EmoEngineEventArgs.EmoEngineEventArgs(UInt32 userId)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoEngineEventArgs.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoEngineException">
+            <summary>Shim type of Emotiv.EmoEngineException</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineException.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineException.#ctor(Emotiv.EmoEngineException)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineException.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineException.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoEngineException.Bind(System.Runtime.Serialization.ISerializable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.Constructor">
+            <summary>Sets the shim of EmoEngineException.EmoEngineException()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.ConstructorSerializationInfoStreamingContext">
+            <summary>Sets the shim of EmoEngineException.EmoEngineException(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.ConstructorString">
+            <summary>Sets the shim of EmoEngineException.EmoEngineException(String message)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.ConstructorStringException">
+            <summary>Sets the shim of EmoEngineException.EmoEngineException(String message, Exception inner)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.ErrorCodeGet">
+            <summary>Sets the shim of EmoEngineException.get_ErrorCode()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.ErrorCodeSetInt32">
+            <summary>Sets the shim of EmoEngineException.set_ErrorCode(Int32 value)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoEngineException.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.AllInstances.ErrorCodeGet">
+            <summary>Sets the shim of EmoEngineException.get_ErrorCode()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoEngineException.AllInstances.ErrorCodeSetInt32">
+            <summary>Sets the shim of EmoEngineException.set_ErrorCode(Int32 value)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoState">
+            <summary>Shim type of Emotiv.EmoState</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoState.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoState.#ctor(Emotiv.EmoState)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoState.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoState.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoState.Bind(System.ICloneable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivEqualEmoState">
+            <summary>Sets the shim of EmoState.AffectivEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivGetEngagementBoredomScore">
+            <summary>Sets the shim of EmoState.AffectivGetEngagementBoredomScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivGetExcitementLongTermScore">
+            <summary>Sets the shim of EmoState.AffectivGetExcitementLongTermScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivGetExcitementShortTermScore">
+            <summary>Sets the shim of EmoState.AffectivGetExcitementShortTermScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivGetFrustrationScore">
+            <summary>Sets the shim of EmoState.AffectivGetFrustrationScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivGetMeditationScore">
+            <summary>Sets the shim of EmoState.AffectivGetMeditationScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivGetValenceScore">
+            <summary>Sets the shim of EmoState.AffectivGetValenceScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AffectivIsActiveEdkDllEE_AffectivAlgo_t">
+            <summary>Sets the shim of EmoState.AffectivIsActive(EE_AffectivAlgo_t type)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.Clone">
+            <summary>Sets the shim of EmoState.Clone()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.CognitivEqualEmoState">
+            <summary>Sets the shim of EmoState.CognitivEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.CognitivGetCurrentAction">
+            <summary>Sets the shim of EmoState.CognitivGetCurrentAction()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.CognitivGetCurrentActionPower">
+            <summary>Sets the shim of EmoState.CognitivGetCurrentActionPower()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.CognitivIsActive">
+            <summary>Sets the shim of EmoState.CognitivIsActive()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.Constructor">
+            <summary>Sets the shim of EmoState.EmoState()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ConstructorEmoState">
+            <summary>Sets the shim of EmoState.EmoState(EmoState es)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.EmoEngineEqualEmoState">
+            <summary>Sets the shim of EmoState.EmoEngineEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.EqualsEmoStateEmoState">
+            <summary>Sets the shim of EmoState.Equals(EmoState a, EmoState b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivEqualEmoState">
+            <summary>Sets the shim of EmoState.ExpressivEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetClenchExtent">
+            <summary>Sets the shim of EmoState.ExpressivGetClenchExtent()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetEyeLocationSingleOutSingleOut">
+            <summary>Sets the shim of EmoState.ExpressivGetEyeLocation(Single&amp; x, Single&amp; y)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetEyebrowExtent">
+            <summary>Sets the shim of EmoState.ExpressivGetEyebrowExtent()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetEyelidStateSingleOutSingleOut">
+            <summary>Sets the shim of EmoState.ExpressivGetEyelidState(Single&amp; leftEye, Single&amp; rightEye)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetLowerFaceAction">
+            <summary>Sets the shim of EmoState.ExpressivGetLowerFaceAction()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetLowerFaceActionPower">
+            <summary>Sets the shim of EmoState.ExpressivGetLowerFaceActionPower()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetSmileExtent">
+            <summary>Sets the shim of EmoState.ExpressivGetSmileExtent()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetUpperFaceAction">
+            <summary>Sets the shim of EmoState.ExpressivGetUpperFaceAction()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivGetUpperFaceActionPower">
+            <summary>Sets the shim of EmoState.ExpressivGetUpperFaceActionPower()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsActiveEdkDllEE_ExpressivAlgo_t">
+            <summary>Sets the shim of EmoState.ExpressivIsActive(EE_ExpressivAlgo_t type)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsBlink">
+            <summary>Sets the shim of EmoState.ExpressivIsBlink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsEyesOpen">
+            <summary>Sets the shim of EmoState.ExpressivIsEyesOpen()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsLeftWink">
+            <summary>Sets the shim of EmoState.ExpressivIsLeftWink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsLookingDown">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingDown()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsLookingLeft">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingLeft()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsLookingRight">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingRight()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsLookingUp">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingUp()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.ExpressivIsRightWink">
+            <summary>Sets the shim of EmoState.ExpressivIsRightWink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetBatteryChargeLevelInt32OutInt32Out">
+            <summary>Sets the shim of EmoState.GetBatteryChargeLevel(Int32&amp; chargeLevel, Int32&amp; maxChargeLevel)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetContactQualityFromAllChannels">
+            <summary>Sets the shim of EmoState.GetContactQualityFromAllChannels()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetContactQualityInt32">
+            <summary>Sets the shim of EmoState.GetContactQuality(Int32 electroIdx)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetHandle">
+            <summary>Sets the shim of EmoState.GetHandle()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetHeadsetOn">
+            <summary>Sets the shim of EmoState.GetHeadsetOn()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetNumContactQualityChannels">
+            <summary>Sets the shim of EmoState.GetNumContactQualityChannels()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetTimeFromStart">
+            <summary>Sets the shim of EmoState.GetTimeFromStart()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.GetWirelessSignalStatus">
+            <summary>Sets the shim of EmoState.GetWirelessSignalStatus()</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoState.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivEqualEmoState">
+            <summary>Sets the shim of EmoState.AffectivEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetEngagementBoredomModelParamsDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EmoState.AffectivGetEngagementBoredomModelParams(Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetEngagementBoredomScore">
+            <summary>Sets the shim of EmoState.AffectivGetEngagementBoredomScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetExcitementLongTermScore">
+            <summary>Sets the shim of EmoState.AffectivGetExcitementLongTermScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetExcitementShortTermModelParamsDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EmoState.AffectivGetExcitementShortTermModelParams(Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetExcitementShortTermScore">
+            <summary>Sets the shim of EmoState.AffectivGetExcitementShortTermScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetFrustrationModelParamsDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EmoState.AffectivGetFrustrationModelParams(Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetFrustrationScore">
+            <summary>Sets the shim of EmoState.AffectivGetFrustrationScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetMeditationModelParamsDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EmoState.AffectivGetMeditationModelParams(Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetMeditationScore">
+            <summary>Sets the shim of EmoState.AffectivGetMeditationScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetValenceModelParamsDoubleOutDoubleOutDoubleOut">
+            <summary>Sets the shim of EmoState.AffectivGetValenceModelParams(Double&amp; rawScore, Double&amp; minScale, Double&amp; maxScale)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivGetValenceScore">
+            <summary>Sets the shim of EmoState.AffectivGetValenceScore()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.AffectivIsActiveEdkDllEE_AffectivAlgo_t">
+            <summary>Sets the shim of EmoState.AffectivIsActive(EE_AffectivAlgo_t type)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.Clone">
+            <summary>Sets the shim of EmoState.Clone()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.CognitivEqualEmoState">
+            <summary>Sets the shim of EmoState.CognitivEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.CognitivGetCurrentAction">
+            <summary>Sets the shim of EmoState.CognitivGetCurrentAction()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.CognitivGetCurrentActionPower">
+            <summary>Sets the shim of EmoState.CognitivGetCurrentActionPower()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.CognitivIsActive">
+            <summary>Sets the shim of EmoState.CognitivIsActive()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.EmoEngineEqualEmoState">
+            <summary>Sets the shim of EmoState.EmoEngineEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.EqualsEmoStateEmoState">
+            <summary>Sets the shim of EmoState.Equals(EmoState a, EmoState b)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivEqualEmoState">
+            <summary>Sets the shim of EmoState.ExpressivEqual(EmoState state)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetClenchExtent">
+            <summary>Sets the shim of EmoState.ExpressivGetClenchExtent()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetEyeLocationSingleOutSingleOut">
+            <summary>Sets the shim of EmoState.ExpressivGetEyeLocation(Single&amp; x, Single&amp; y)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetEyebrowExtent">
+            <summary>Sets the shim of EmoState.ExpressivGetEyebrowExtent()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetEyelidStateSingleOutSingleOut">
+            <summary>Sets the shim of EmoState.ExpressivGetEyelidState(Single&amp; leftEye, Single&amp; rightEye)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetLowerFaceAction">
+            <summary>Sets the shim of EmoState.ExpressivGetLowerFaceAction()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetLowerFaceActionPower">
+            <summary>Sets the shim of EmoState.ExpressivGetLowerFaceActionPower()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetSmileExtent">
+            <summary>Sets the shim of EmoState.ExpressivGetSmileExtent()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetUpperFaceAction">
+            <summary>Sets the shim of EmoState.ExpressivGetUpperFaceAction()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivGetUpperFaceActionPower">
+            <summary>Sets the shim of EmoState.ExpressivGetUpperFaceActionPower()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsActiveEdkDllEE_ExpressivAlgo_t">
+            <summary>Sets the shim of EmoState.ExpressivIsActive(EE_ExpressivAlgo_t type)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsBlink">
+            <summary>Sets the shim of EmoState.ExpressivIsBlink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsEyesOpen">
+            <summary>Sets the shim of EmoState.ExpressivIsEyesOpen()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsLeftWink">
+            <summary>Sets the shim of EmoState.ExpressivIsLeftWink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsLookingDown">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingDown()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsLookingLeft">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingLeft()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsLookingRight">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingRight()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsLookingUp">
+            <summary>Sets the shim of EmoState.ExpressivIsLookingUp()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.ExpressivIsRightWink">
+            <summary>Sets the shim of EmoState.ExpressivIsRightWink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetBatteryChargeLevelInt32OutInt32Out">
+            <summary>Sets the shim of EmoState.GetBatteryChargeLevel(Int32&amp; chargeLevel, Int32&amp; maxChargeLevel)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetContactQualityFromAllChannels">
+            <summary>Sets the shim of EmoState.GetContactQualityFromAllChannels()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetContactQualityInt32">
+            <summary>Sets the shim of EmoState.GetContactQuality(Int32 electroIdx)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetHandle">
+            <summary>Sets the shim of EmoState.GetHandle()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetHeadsetOn">
+            <summary>Sets the shim of EmoState.GetHeadsetOn()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetNumContactQualityChannels">
+            <summary>Sets the shim of EmoState.GetNumContactQualityChannels()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetTimeFromStart">
+            <summary>Sets the shim of EmoState.GetTimeFromStart()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoState.AllInstances.GetWirelessSignalStatus">
+            <summary>Sets the shim of EmoState.GetWirelessSignalStatus()</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs">
+            <summary>Shim type of Emotiv.EmoStateUpdatedEventArgs</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.#ctor(Emotiv.EmoStateUpdatedEventArgs)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.ConstructorUInt32EmoState">
+            <summary>Sets the shim of EmoStateUpdatedEventArgs.EmoStateUpdatedEventArgs(UInt32 userId, EmoState emoState)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimEmoStateUpdatedEventArgs.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimOptimizationParam">
+            <summary>Shim type of Emotiv.OptimizationParam</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimOptimizationParam.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimOptimizationParam.#ctor(Emotiv.OptimizationParam)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimOptimizationParam.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimOptimizationParam.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.Constructor">
+            <summary>Sets the shim of OptimizationParam.OptimizationParam()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.GetHandle">
+            <summary>Sets the shim of OptimizationParam.GetHandle()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.GetVitalAlgorithmEdkDllEE_EmotivSuite_t">
+            <summary>Sets the shim of OptimizationParam.GetVitalAlgorithm(EE_EmotivSuite_t suite)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.SetVitalAlgorithmEdkDllEE_EmotivSuite_tUInt32">
+            <summary>Sets the shim of OptimizationParam.SetVitalAlgorithm(EE_EmotivSuite_t suite, UInt32 vitalAlgorithmBitVector)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimOptimizationParam.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.AllInstances.GetHandle">
+            <summary>Sets the shim of OptimizationParam.GetHandle()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.AllInstances.GetVitalAlgorithmEdkDllEE_EmotivSuite_t">
+            <summary>Sets the shim of OptimizationParam.GetVitalAlgorithm(EE_EmotivSuite_t suite)</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimOptimizationParam.AllInstances.SetVitalAlgorithmEdkDllEE_EmotivSuite_tUInt32">
+            <summary>Sets the shim of OptimizationParam.SetVitalAlgorithm(EE_EmotivSuite_t suite, UInt32 vitalAlgorithmBitVector)</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimProfile">
+            <summary>Shim type of Emotiv.Profile</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimProfile.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimProfile.#ctor(Emotiv.Profile)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimProfile.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.ShimProfile.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimProfile.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimProfile.Constructor">
+            <summary>Sets the shim of Profile.Profile()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimProfile.GetBytes">
+            <summary>Sets the shim of Profile.GetBytes()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimProfile.GetHandle">
+            <summary>Sets the shim of Profile.GetHandle()</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.ShimProfile.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimProfile.AllInstances.GetBytes">
+            <summary>Sets the shim of Profile.GetBytes()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.ShimProfile.AllInstances.GetHandle">
+            <summary>Sets the shim of Profile.GetHandle()</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubEdkDll">
+            <summary>Stub type of Emotiv.EdkDll</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEdkDll.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEdkDll.InitializeStub">
+            <summary>Initializes a new instance of type StubEdkDll</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEdkDll.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEdkDll.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEdkDll.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubEmoEngineEventArgs">
+            <summary>Stub type of Emotiv.EmoEngineEventArgs</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineEventArgs.#ctor(System.UInt32)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineEventArgs.InitializeStub">
+            <summary>Initializes a new instance of type StubEmoEngineEventArgs</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineEventArgs.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineEventArgs.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineEventArgs.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubEmoEngineException">
+            <summary>Stub type of Emotiv.EmoEngineException</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.#ctor(System.String)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.#ctor(System.String,System.Exception)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.AttachBackingFieldToHelpLink">
+            <summary>Attaches delegates to emulate StubEmoEngineException.HelpLink as a property with a backing field.</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.AttachBackingFieldToSource">
+            <summary>Attaches delegates to emulate StubEmoEngineException.Source as a property with a backing field.</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.DataGet">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.GetBaseException">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.GetBaseException01">
+            <summary>Sets the stub of Exception.GetBaseException()</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.GetObjectDataSerializationInfoStreamingContext">
+            <summary>Sets the stub of Exception.GetObjectData(SerializationInfo info, StreamingContext context)</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.HelpLinkGet">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.HelpLinkSetString">
+            <summary>Sets the stub of Exception.set_HelpLink(String value)</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.InitializeStub">
+            <summary>Initializes a new instance of type StubEmoEngineException</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.MessageGet">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.SourceGet">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.SourceSetString">
+            <summary>Sets the stub of Exception.set_Source(String value)</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.StackTraceGet">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoEngineException.ToString">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="F:Emotiv.Fakes.StubEmoEngineException.ToString01">
+            <summary>Sets the stub of Exception.ToString()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.Data">
+            <summary>Sets the stub of Exception.get_Data()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.HelpLink">
+            <summary>Sets the stub of Exception.get_HelpLink()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.Message">
+            <summary>Sets the stub of Exception.get_Message()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.Source">
+            <summary>Sets the stub of Exception.get_Source()</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoEngineException.StackTrace">
+            <summary>Sets the stub of Exception.get_StackTrace()</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubEmoState">
+            <summary>Stub type of Emotiv.EmoState</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoState.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoState.#ctor(Emotiv.EmoState)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoState.InitializeStub">
+            <summary>Initializes a new instance of type StubEmoState</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoState.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoState.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoState.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubEmoStateUpdatedEventArgs">
+            <summary>Stub type of Emotiv.EmoStateUpdatedEventArgs</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoStateUpdatedEventArgs.#ctor(System.UInt32,Emotiv.EmoState)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubEmoStateUpdatedEventArgs.InitializeStub">
+            <summary>Initializes a new instance of type StubEmoStateUpdatedEventArgs</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoStateUpdatedEventArgs.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoStateUpdatedEventArgs.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubEmoStateUpdatedEventArgs.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubOptimizationParam">
+            <summary>Stub type of Emotiv.OptimizationParam</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubOptimizationParam.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubOptimizationParam.InitializeStub">
+            <summary>Initializes a new instance of type StubOptimizationParam</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubOptimizationParam.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubOptimizationParam.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubOptimizationParam.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Emotiv.Fakes.StubProfile">
+            <summary>Stub type of Emotiv.Profile</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubProfile.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Emotiv.Fakes.StubProfile.InitializeStub">
+            <summary>Initializes a new instance of type StubProfile</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubProfile.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubProfile.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Emotiv.Fakes.StubProfile.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Microsoft.QualityTools.Testing.Fakes.Delegates.DotNetEmotivSDKDelegates">
+            <summary>Contains custom delegates used for the stubs and shims of DotNetEmotivSDK</summary>
+        </member>
+    </members>
+</doc>
