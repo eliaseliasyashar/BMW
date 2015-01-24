@@ -9,10 +9,10 @@ namespace Database
 {
     class Program
     {
-        static void Main(string[] args)
+         
+         String user="";
+        void CreateUser()
         {
-            // [snip] - As C# is purely object-oriented the following lines must be put into a class:
-
             // We use these three SQLite objects:
             SQLiteConnection sqlite_conn;
             SQLiteCommand sqlite_cmd;
@@ -20,47 +20,26 @@ namespace Database
 
             // create a new database connection:
             sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=True;Compress=True;");
-
-            // open the connection:
+            // open connecttion to database
             sqlite_conn.Open();
-
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-
             // Let the SQLiteCommand object know our SQL-Query:
-            sqlite_cmd.CommandText = "CREATE TABLE test (id integer primary key, text varchar(100));";
 
+            // need to find the user in the databse table userFinder
+            // TODO  create table userFinder
+            sqlite_cmd.CommandText = "CREATE TABLE "+ user+ "_EEG" +  "(UserName varchar(20) primary key,AF3 float , F7 float , F3 float,FC5 float, T7 float,P7 float,O1 float, O2 float,P8 float ,T8 float,FC6 float,F4 float,F8 float,AF4 float,TimeStamp float,section integer, ComputerTime varchar);";
             // Now lets execute the SQL ;D
             sqlite_cmd.ExecuteNonQuery();
-
-            // Lets insert something into our new table:
-            sqlite_cmd.CommandText = "INSERT INTO test (id, text) VALUES (1, 'Test Text 1');";
-
-            // And execute this again ;D
-            sqlite_cmd.ExecuteNonQuery();
-
-            // ...and inserting another line:
-            sqlite_cmd.CommandText = "INSERT INTO test (id, text) VALUES (2, 'Test Text 2');";
-
-            // And execute this again ;D
-            sqlite_cmd.ExecuteNonQuery();
-
-            // But how do we read something out of our table ?
-            // First lets build a SQL-Query again:
-            sqlite_cmd.CommandText = "SELECT * FROM test";
-
-            // Now the SQLiteCommand object can give us a DataReader-Object:
-            sqlite_datareader = sqlite_cmd.ExecuteReader();
-
-            // The SQLiteDataReader allows us to run through the result lines:
-            while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
-            {
-                // Print out the content of the text field:
-                System.Console.WriteLine(sqlite_datareader["text"]);
-            }
-
-            // We are ready, now lets cleanup and close our connection:
             sqlite_conn.Close();
+        }
+
+     
+
+        static void Main(string[] args)
+        {
+           
+           
             Console.ReadKey();
         }
     }
