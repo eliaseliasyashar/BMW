@@ -7,10 +7,10 @@ using Finisar.SQLite;
 
 namespace Database
 {
-    class Program
+    class Database
     {
          // for table UserFinder
-         String user="";
+         String user="Zijian";
         // for table bandpower
          Queue<float> alpha = new Queue<float>();
          Queue<float> beta = new Queue<float>();
@@ -41,7 +41,7 @@ namespace Database
             SQLiteDataReader sqlite_datareader;
 
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=True;Compress=True;");
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
             // open connecttion to database
             sqlite_conn.Open();
             // create a new SQL command:
@@ -50,16 +50,45 @@ namespace Database
 
             // need to find the user in the databse table userFinder
             // TODO  create table userFinder
-            sqlite_cmd.CommandText = "SELECT * FROM UserFinder where UserName="+user+";";
-            sqlite_datareader = sqlite_cmd.ExecuteReader();
-            if (!sqlite_datareader.Read())
+            sqlite_cmd.CommandText = "SELECT * FROM UserFinder where UserName='"+user+"';";
+           
+                sqlite_datareader = sqlite_cmd.ExecuteReader();
+                Boolean data = true;
+                try
+                {
+                    data = sqlite_datareader.Read();
+                    if (data)
+                    {
+                        Console.WriteLine("User " + user + " Existed");
+                        Console.WriteLine("User" + sqlite_datareader["UserName"]);
+                    }
+                }catch (SQLiteException e)
+                {
+                 Console.WriteLine("User " + user +" Not Existed");
+                 data = false;
+                }
+             sqlite_conn.Close();
+
+            if (!data)
             {
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG" + "(UserName varchar(20) primary key,AF3 float , F7 float , F3 float,FC5 float, T7 float,P7 float,O1 float, O2 float,P8 float ,T8 float,FC6 float,F4 float,F8 float,AF4 float,TimeStamp float,section integer, ComputerTime varchar);";
+                // We use these three SQLite objects:
+               
+
+                // create a new database connection:
+                sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
+                // open connecttion to database
+                sqlite_conn.Open();
+                // create a new SQL command:
+                sqlite_cmd = sqlite_conn.CreateCommand();
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG(UserName varchar(20) primary key,AF3 float , F7 float , F3 float,FC5 float, T7 float,P7 float,O1 float, O2 float,P8 float ,T8 float,FC6 float,F4 float,F8 float,AF4 float,TimeStamp float,section integer, ComputerTime varchar);";
+                    sqlite_cmd.ExecuteNonQuery();
+                Console.WriteLine("Creatring Table " + user + "_EEG\n");
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "(UserName varchar(20) ,Alpha float, Beta float,TimeStamp float,section integer, ComputerTime varchar);";
                 sqlite_cmd.ExecuteNonQuery();
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "(UserName varchar(20) primary key,Alpha float, Beta float,TimeStamp float,section integer, ComputerTime varchar);";
+                Console.WriteLine("Creatring Table " + user + "_BandPower\n");
+                sqlite_cmd.CommandText = "INSERT INTO UserFinder (UserName) VALUES ('" + user+"');";
                 sqlite_cmd.ExecuteNonQuery();
-                sqlite_cmd.CommandText = "INSERT INTO UserFinder (UserName) VALUES ("+user+");";
-                sqlite_cmd.ExecuteNonQuery();
+                Console.WriteLine("Inserting New User " + user + " To UserFinder\n");
             }
             sqlite_conn.Close();
         }
@@ -77,8 +106,15 @@ namespace Database
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "CREATE TABLE UserFinder (UserName varchar(50) primary key);";
-            sqlite_cmd.ExecuteNonQuery();
+            sqlite_cmd.CommandText = "CREATE TABLE UserFinder (UserName varchar(50) );";
+            try
+            {
+                sqlite_cmd.ExecuteNonQuery();
+                Console.WriteLine("UserFinder Created");
+            }catch(SQLiteException e)
+            {
+                Console.WriteLine("UserFinder Exist");
+            }
             sqlite_conn.Close();
         }
 
@@ -91,12 +127,12 @@ namespace Database
             SQLiteDataReader sqlite_datareader;
 
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=True;Compress=True;");
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
             // open connecttion to database
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO "+user + "_EEG (UserName varchar(20) primary key,AF3 float , F7 float , F3 float,FC5 float, T7 float,P7 float,O1 float, O2 float,P8 float ,T8 float,FC6 float,F4 float,F8 float,AF4 float,TimeStamp float,section integer, ComputerTime varchar) VALUES("+UserName+","+AF3+","+F7+","+","+F3+","+FC5+","+T7+","+P7+","+O1+","+O2+","+P8+","+FC6+","+F4+","+F8+","+AF4+","+TimeStamp+","+section+","+ComputerTime+");" ;
+            sqlite_cmd.CommandText = "INSERT INTO "+user + "_EEG (UserName ,AF3 , F7 , F3,FC5 , T7 ,P7,O1, O2 ,P8  ,T8 ,FC6 ,F4 ,F8 ,AF4 ,TimeStamp ,section , ComputerTime ) VALUES('"  +UserName  +"',"+   AF3  +","  +F7+  ","+F3+","+FC5+","+T7+","+P7+","+O1+","+O2+","+P8+","+FC6+","+F4+","+F8+","+T8+","+AF4+","+TimeStamp+","+section+",'"+ComputerTime+"');" ;
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
@@ -108,12 +144,12 @@ namespace Database
             SQLiteCommand sqlite_cmd;
             SQLiteDataReader sqlite_datareader;
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=True;Compress=True;");
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
             // open connecttion to database
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower(UserName varchar(20) primary key,Alpha float, Beta float,TimeStamp float,section integer, ComputerTime varchar) VALUES("+user+","+Alpha+","+Beta+","+TimeStamp+","+section+","+ComputerTime+");";
+            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (UserName  ,Alpha , Beta ,TimeStamp ,section , ComputerTime ) VALUES('"+user+"',"+Alpha+","+Beta+","+TimeStamp+","+section+",'"+ComputerTime+"');";
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
@@ -127,7 +163,7 @@ namespace Database
             SQLiteCommand sqlite_cmd;
             SQLiteDataReader sqlite_datareader;
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=True;Compress=True;");
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
             // open connecttion to database
             sqlite_conn.Open();
             // create a new SQL command:
@@ -165,7 +201,7 @@ namespace Database
             SQLiteCommand sqlite_cmd;
             SQLiteDataReader sqlite_datareader;
             // create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=True;Compress=True;");
+            sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=false;Compress=True;");
             // open connecttion to database
             sqlite_conn.Open();
             // create a new SQL command:
@@ -182,7 +218,10 @@ namespace Database
              Console.WriteLine("Finish Loading BandPower Data\n");
         }
 
-
+        Database()
+        {
+            CreateUserFinder();
+        }
 
 
 
@@ -195,7 +234,29 @@ namespace Database
 
         static void Main(string[] args)
         {
-      
+            Database db = new Database();
+            db.CreateUser();
+            db.SetUserName("Chen");
+            db.CreateUser();
+            db.SetUserName("Lion");
+            db.CreateUser();
+            db.SetUserName("Lion");
+            db.CreateUser();
+            db.SetUserName("Chen");
+            db.CreateUser();
+            db.SetUserName("Zijian");
+            db.CreateUser();
+            db.BandPowerInsert("Zijian",53.3F , 90.2F, 12.34F, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",59.3F , 92.2F, 12.34F, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",70.3F , 90.2F, 12.34F, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",90.3F , 90.2F, 12.34F, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",99.3F , 90.2F, 12.34F, 3, "11:11;11");
+            db.Load_BandPowerData("Zijian");
+           foreach(float q  in db.alpha)
+               Console.WriteLine(q);
+           db.EEG_Insert("Zijian", 10.3F,  10.8F ,   10.3F,  10.3F,  10.3F,  10.3F,  10.3F,   10.3F,  10.3F ,  10.3F,  10.3F,  10.3F,  10.3F,  10.3F,  10.3F, 2,  "11:11:11");
+           db.Loa_EEGData("Zijian");
+          Console.WriteLine( db.AF3.Peek());
             Console.ReadKey();
         }
     }
