@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7496889E-6F22-4113-A1ED-13693F86DD87}</ProjectGuid>
+    <ProjectGuid>{67D6E01A-93C2-48E3-960D-8DB1AE7D0EF0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NaiveBayesClassifier</RootNamespace>
