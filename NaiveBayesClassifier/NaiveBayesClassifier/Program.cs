@@ -16,33 +16,33 @@ namespace NaiveBayesClassifier
             NaiveBayes NBC = new NaiveBayes();        
         }
 
-        float TotalTranningSet =0.00F;
+        double TotalTranningSet =0.00F;
 
-        float High_Number=0.0F;
-        float High = 0.0F;
-        float Alpha_High_High = 0.0F;
-        float Alpha_Low_High = 0.0F;
-        float Beta_High_High = 0.0F;
-        float Beta_Low_High = 0.0F;
+        double High_Number=0.0F;
+        double High = 0.0F;
+        double Alpha_High_High = 0.0F;
+        double Alpha_Low_High = 0.0F;
+        double Beta_High_High = 0.0F;
+        double Beta_Low_High = 0.0F;
 
-        float Low_Number = 0.0F;
-        float low = 0.0F;
-        float Alpha_High_low = 0.0F;
-        float Alpha_Low_low = 0.0F;
-        float Beta_High_low = 0.0F;
-        float Beta_Low_low = 0.0F;
-
-        // 
-        float Num_Alpha_High_High = 0.0F;
-        float Num_Alpha_Low_High = 0.0F;
-        float Num_Alpha_High_Low = 0.0F;
-        float Num_Alpha_Low_Low = 0.0F;
+        double Low_Number = 0.0F;
+        double low = 0.0F;
+        double Alpha_High_low = 0.0F;
+        double Alpha_Low_low = 0.0F;
+        double Beta_High_low = 0.0F;
+        double Beta_Low_low = 0.0F;
 
         // 
-        float Num_Beta_High_High = 0.0F;
-        float Num_Beta_Low_High = 0.0F;
-        float Num_Beta_High_Low = 0.0F;
-        float Num_Beta_Low_Low = 0.0F;
+        double Num_Alpha_High_High = 0.0F;
+        double Num_Alpha_Low_High = 0.0F;
+        double Num_Alpha_High_Low = 0.0F;
+        double Num_Alpha_Low_Low = 0.0F;
+
+        // 
+        double Num_Beta_High_High = 0.0F;
+        double Num_Beta_Low_High = 0.0F;
+        double Num_Beta_High_Low = 0.0F;
+        double Num_Beta_Low_Low = 0.0F;
 
         Boolean focus = false;
 
@@ -105,7 +105,7 @@ namespace NaiveBayesClassifier
             else
                 IncreaseNumberOfLow();
         }
-        void Tranning(float alpha , float beta)
+        void Tranning(double alpha , double beta)
         {
 
             if (alpha > 50 && focus == true)    // Alpha_High_High
@@ -134,11 +134,11 @@ namespace NaiveBayesClassifier
         }
 
 
-          Boolean Classifier(float alpha, float beta)
+          Boolean Classifier(double alpha, double beta)
         {
             Boolean result=false;
-            float P_Focus = High_Number / TotalTranningSet;
-            float P_UnFocus = Low_Number / TotalTranningSet;
+            double P_Focus = High_Number / TotalTranningSet;
+            double P_UnFocus = Low_Number / TotalTranningSet;
             if (alpha > 50)
             {
                 P_Focus = P_Focus * (Num_Alpha_High_High / High_Number);

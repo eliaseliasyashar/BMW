@@ -12,24 +12,24 @@ namespace Database
          // for table UserFinder
          String user="Zijian";
         // for table bandpower
-         Queue<float> alpha = new Queue<float>();
-         Queue<float> beta = new Queue<float>();
+         Queue<double> alpha = new Queue<double>();
+         Queue<double> beta = new Queue<double>();
         // for table EEG
-         Queue<float> AF3 = new Queue<float>();
-         Queue<float> F7 = new Queue<float>();
-         Queue<float> F3 = new Queue<float>();
-         Queue<float> FC5 = new Queue<float>();
-         Queue<float> T7 = new Queue<float>();
-         Queue<float> P7 = new Queue<float>();
-         Queue<float> O1 = new Queue<float>();
-         Queue<float> O2 = new Queue<float>();
-         Queue<float> P8 = new Queue<float>();
-         Queue<float> T8 = new Queue<float>();
-         Queue<float> FC6 = new Queue<float>();
-         Queue<float> F4 = new Queue<float>();
-         Queue<float> F8 = new Queue<float>();
-         Queue<float> AF4 = new Queue<float>();
-         Queue<float> TimeStamp = new Queue<float>();
+         Queue<double> AF3 = new Queue<double>();
+         Queue<double> F7 = new Queue<double>();
+         Queue<double> F3 = new Queue<double>();
+         Queue<double> FC5 = new Queue<double>();
+         Queue<double> T7 = new Queue<double>();
+         Queue<double> P7 = new Queue<double>();
+         Queue<double> O1 = new Queue<double>();
+         Queue<double> O2 = new Queue<double>();
+         Queue<double> P8 = new Queue<double>();
+         Queue<double> T8 = new Queue<double>();
+         Queue<double> FC6 = new Queue<double>();
+         Queue<double> F4 = new Queue<double>();
+         Queue<double> F8 = new Queue<double>();
+         Queue<double> AF4 = new Queue<double>();
+         Queue<double> TimeStamp = new Queue<double>();
     
          Queue<int> section = new Queue<int>();
          Queue<String> ComputerTime = new Queue<String>();
@@ -80,10 +80,10 @@ namespace Database
                 sqlite_conn.Open();
                 // create a new SQL command:
                 sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG(UserName varchar(20) primary key,AF3 float , F7 float , F3 float,FC5 float, T7 float,P7 float,O1 float, O2 float,P8 float ,T8 float,FC6 float,F4 float,F8 float,AF4 float,TimeStamp float,section integer, ComputerTime varchar);";
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG(UserName varchar(20) ,AF3 double , F7 double , F3 double,FC5 double, T7 double,P7 double,O1 double, O2 double,P8 double ,T8 double,FC6 double,F4 double,F8 double,AF4 double,TimeStamp double,section integer, ComputerTime varchar);";
                     sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_EEG\n");
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "(UserName varchar(20) ,Alpha float, Beta float,TimeStamp float,section integer, ComputerTime varchar);";
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "(UserName varchar(20) ,Alpha double, Beta double,TimeStamp double,section integer, ComputerTime varchar);";
                 sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_BandPower\n");
                 sqlite_cmd.CommandText = "INSERT INTO UserFinder (UserName) VALUES ('" + user+"');";
@@ -119,7 +119,7 @@ namespace Database
         }
 
 
-        void EEG_Insert(String UserName, float AF3,  float F7 ,  float F3, float FC5,  float T7, float P7, float O1,  float O2, float P8 , float T8, float FC6, float F4, float F8, float AF4, float TimeStamp, int section,  String ComputerTime )
+        void EEG_Insert(String UserName, double AF3,  double F7 ,  double F3, double FC5,  double T7, double P7, double O1,  double O2, double P8 , double T8, double FC6, double F4, double F8, double AF4, double TimeStamp, int section,  String ComputerTime )
         {
             // We use these three SQLite objects:
             SQLiteConnection sqlite_conn;
@@ -137,7 +137,7 @@ namespace Database
             sqlite_conn.Close();
         }
 
-         void BandPowerInsert(String UserName,float Alpha , float Beta, float TimeStamp, int section, String ComputerTime)
+         void BandPowerInsert(String UserName,double Alpha , double Beta, double TimeStamp, int section, String ComputerTime)
         {
             // We use these three SQLite objects:
             SQLiteConnection sqlite_conn;
@@ -173,21 +173,21 @@ namespace Database
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
             {
-                AF3.Enqueue((float)sqlite_datareader["AF3"]);
-                F7.Enqueue((float)sqlite_datareader["F7"]);
-                F3.Enqueue((float)sqlite_datareader["F3"]);
-                FC5.Enqueue((float)sqlite_datareader["FC5"]);
-                T7.Enqueue((float)sqlite_datareader["T7"]); 
-                P7.Enqueue((float)sqlite_datareader["P7"]);
-                O1.Enqueue((float)sqlite_datareader["O1"]);
-                O2.Enqueue((float)sqlite_datareader["O2"]);
-                P8.Enqueue((float)sqlite_datareader["P8"]);
-                T8.Enqueue((float)sqlite_datareader["T8"]);
-                FC6.Enqueue((float)sqlite_datareader["FC6"]);
-                F4.Enqueue((float)sqlite_datareader["F4"]);
-                F8.Enqueue((float)sqlite_datareader["F8"]);
-                AF4.Enqueue((float)sqlite_datareader["AF4"]);
-                TimeStamp.Enqueue((float)sqlite_datareader["TimeStamp"]);
+                AF3.Enqueue((double)sqlite_datareader["AF3"]);
+                F7.Enqueue((double)sqlite_datareader["F7"]);
+                F3.Enqueue((double)sqlite_datareader["F3"]);
+                FC5.Enqueue((double)sqlite_datareader["FC5"]);
+                T7.Enqueue((double)sqlite_datareader["T7"]); 
+                P7.Enqueue((double)sqlite_datareader["P7"]);
+                O1.Enqueue((double)sqlite_datareader["O1"]);
+                O2.Enqueue((double)sqlite_datareader["O2"]);
+                P8.Enqueue((double)sqlite_datareader["P8"]);
+                T8.Enqueue((double)sqlite_datareader["T8"]);
+                FC6.Enqueue((double)sqlite_datareader["FC6"]);
+                F4.Enqueue((double)sqlite_datareader["F4"]);
+                F8.Enqueue((double)sqlite_datareader["F8"]);
+                AF4.Enqueue((double)sqlite_datareader["AF4"]);
+                TimeStamp.Enqueue((double)sqlite_datareader["TimeStamp"]);
             }
             sqlite_conn.Close();
             Console.WriteLine("Finish Loading EEG Data");
@@ -211,8 +211,8 @@ namespace Database
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
             {
-                alpha.Enqueue((float)sqlite_datareader["Alpha"]);
-                beta.Enqueue((float)sqlite_datareader["Beta"]);
+                alpha.Enqueue((double)sqlite_datareader["Alpha"]);
+                beta.Enqueue((double)sqlite_datareader["Beta"]);
             }
              sqlite_conn.Close();
              Console.WriteLine("Finish Loading BandPower Data\n");
@@ -220,7 +220,7 @@ namespace Database
 
         Database()
         {
-            CreateUserFinder();
+           // CreateUserFinder();
         }
 
 
@@ -235,6 +235,7 @@ namespace Database
         static void Main(string[] args)
         {
             Database db = new Database();
+         //   db.CreateUserFinder();
             db.CreateUser();
             db.SetUserName("Chen");
             db.CreateUser();
@@ -246,13 +247,13 @@ namespace Database
             db.CreateUser();
             db.SetUserName("Zijian");
             db.CreateUser();
-            db.BandPowerInsert("Zijian",53.3F , 90.2F, 12.34F, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",59.3F , 92.2F, 12.34F, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",70.3F , 90.2F, 12.34F, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",90.3F , 90.2F, 12.34F, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",99.3F , 90.2F, 12.34F, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",53.3 , 90.2, 12.34, 3, "11:11;11");
+           db.BandPowerInsert("Zijian",59.3 , 92.2, 12.34, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",70.3 , 90.2, 12.34, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",90.3 , 90.2, 12.34, 3, "11:11;11");
+            db.BandPowerInsert("Zijian",99.3 , 90.2, 12.34, 3, "11:11;11");
             db.Load_BandPowerData("Zijian");
-           foreach(float q  in db.alpha)
+           foreach(double q  in db.alpha)
                Console.WriteLine(q);
            db.EEG_Insert("Zijian", 10.3F,  10.8F ,   10.3F,  10.3F,  10.3F,  10.3F,  10.3F,   10.3F,  10.3F ,  10.3F,  10.3F,  10.3F,  10.3F,  10.3F,  10.3F, 2,  "11:11:11");
            db.Loa_EEGData("Zijian");
