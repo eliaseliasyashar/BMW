@@ -1,0 +1,8 @@
+WriteLine()
+//not tested
+//add data to database
+                //session number not considered. Sort of dependent on database
+                eegDB.EEG_Insert(userName, EEGStorer[i].AF3,  EEGStorer[i].F7 ,  EEGStorer[i].F3, 
+                EEGStorer[i].FC5,  EEGStorer[i].T7, EEGStorer[i].P7, EEGStorer[i].O1,  EEGStorer[i].O2,
+                EEGStorer[i].P8 , EEGStorer[i].T8, EEGStorer[i].FC6, EEGStorer[i].F4, EEGStorer[i].F8, 
+                EEGStorer[i].AF4,EEGStorer[i].TIMESTAMP, 1, EEGStorer[i].date.ToString()); 
