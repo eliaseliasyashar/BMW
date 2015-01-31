@@ -4,7 +4,7 @@ using Emotiv;
 using System.IO;
 using System.Threading;
 using System.Reflection;
-
+ 
 namespace EEG_Example_1
 {
     class EEG_Logger

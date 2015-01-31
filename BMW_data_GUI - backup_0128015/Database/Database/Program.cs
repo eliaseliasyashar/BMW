@@ -30,6 +30,17 @@ namespace EEGDatabase
          Queue<double> F8 = new Queue<double>();
          Queue<double> AF4 = new Queue<double>();
          Queue<double> TimeStamp = new Queue<double>();
+
+        // for signal table use only
+         Queue<double> GYROX = new Queue<double>();
+         Queue<double> GYROY = new Queue<double>();
+         Queue<double> ES_TIMESTAMP = new Queue<double>();
+         Queue<double> FUNC_ID = new Queue<double>();
+         Queue<double> FUNC_VALUE = new Queue<double>();
+         Queue<double> MARKER = new Queue<double>();
+         Queue<double> SYNC_SIGNAL = new Queue<double>();
+         
+
     
          Queue<int> section = new Queue<int>();
          Queue<String> ComputerTime = new Queue<String>();
@@ -80,12 +91,18 @@ namespace EEGDatabase
                 sqlite_conn.Open();
                 // create a new SQL command:
                 sqlite_cmd = sqlite_conn.CreateCommand();
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG(UserName varchar(20) ,AF3 double , F7 double , F3 double,FC5 double, T7 double,P7 double,O1 double, O2 double,P8 double ,T8 double,FC6 double,F4 double,F8 double,AF4 double,TimeStamp double,section integer, ComputerTime varchar);";
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG( AF3 double , F7 double , F3 double,FC5 double, T7 double,P7 double,O1 double, O2 double,P8 double ,T8 double,FC6 double,F4 double,F8 double,AF4 double,TimeStamp double,section integer, ComputerTime varchar);";
                     sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_EEG\n");
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "(UserName varchar(20) ,Alpha double, Beta double,TimeStamp double,section integer, ComputerTime varchar);";
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "( Alpha double, Beta double,TimeStamp double,section integer, ComputerTime varchar);";
                 sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_BandPower\n");
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_Signal" + "(GYROX double ,GYROY double ,ES_TIMESTAMP double ,FUNC_ID double,FUNC_VALUE double,MARKER double,SYNC_SIGNAL double, section integer) ;";
+                sqlite_cmd.ExecuteNonQuery();
+                Console.WriteLine("Creatring Table " + user + "_Signal\n");
+
+
+
                 sqlite_cmd.CommandText = "INSERT INTO UserFinder (UserName) VALUES ('" + user+"');";
                 sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Inserting New User " + user + " To UserFinder\n");
@@ -134,7 +151,7 @@ namespace EEGDatabase
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO "+user + "_EEG (UserName ,AF3 , F7 , F3,FC5 , T7 ,P7,O1, O2 ,P8  ,T8 ,FC6 ,F4 ,F8 ,AF4 ,TimeStamp ,section , ComputerTime ) VALUES('"  +UserName  +"',"+   AF3  +","  +F7+  ","+F3+","+FC5+","+T7+","+P7+","+O1+","+O2+","+P8+","+FC6+","+F4+","+F8+","+T8+","+AF4+","+TimeStamp+","+section+",'"+ComputerTime+"');" ;
+            sqlite_cmd.CommandText = "INSERT INTO "+user + "_EEG (AF3 , F7 , F3,FC5 , T7 ,P7,O1, O2 ,P8  ,T8 ,FC6 ,F4 ,F8 ,AF4 ,TimeStamp ,section , ComputerTime ) VALUES('"  +UserName  +"',"+   AF3  +","  +F7+  ","+F3+","+FC5+","+T7+","+P7+","+O1+","+O2+","+P8+","+FC6+","+F4+","+F8+","+T8+","+AF4+","+TimeStamp+","+section+",'"+ComputerTime+"');" ;
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
@@ -151,10 +168,59 @@ namespace EEGDatabase
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (UserName  ,Alpha , Beta ,TimeStamp ,section , ComputerTime ) VALUES('"+user+"',"+Alpha+","+Beta+","+TimeStamp+","+section+",'"+ComputerTime+"');";
+            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (Alpha , Beta ,TimeStamp ,section , ComputerTime ) VALUES('"+user+"',"+Alpha+","+Beta+","+TimeStamp+","+section+",'"+ComputerTime+"');";
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
+
+        
+         void SignalInsert(String user ,double GYROX, double GYROY, double ES_TIMESTAMP, double FUNC_ID, double FUNC_VALUE, double MARKER, double SYNC_SIGNAL,  int section)
+         {
+             // We use these three SQLite objects:
+             SQLiteConnection sqlite_conn;
+             SQLiteCommand sqlite_cmd;
+             SQLiteDataReader sqlite_datareader;
+             // create a new database connection:
+             sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
+             // open connecttion to database
+             sqlite_conn.Open();
+             // create a new SQL command:
+             sqlite_cmd = sqlite_conn.CreateCommand();
+             sqlite_cmd.CommandText = "INSERT INTO " + user + "_Signal (GYROX ,GYROY ,ES_TIMESTAMP ,FUNC_ID ,FUNC_VALUE ,MARKER ,SYNC_SIGNAL , section) VALUES(" +GYROX+","+GYROY+","+ES_TIMESTAMP+","+FUNC_ID+","+FUNC_VALUE+","+MARKER+","+SYNC_SIGNAL+","+section+");" ;
+             sqlite_cmd.ExecuteNonQuery();
+             sqlite_conn.Close();
+         }
+
+
+        void Load_Signal(String user)
+         {
+             // We use these three SQLite objects:
+             SQLiteConnection sqlite_conn;
+             SQLiteCommand sqlite_cmd;
+             SQLiteDataReader sqlite_datareader;
+             // create a new database connection:
+             sqlite_conn = new SQLiteConnection("Data Source=database.db;Version=3;New=False;Compress=True;");
+             // open connecttion to database
+             sqlite_conn.Open();
+             // create a new SQL command:
+             sqlite_cmd = sqlite_conn.CreateCommand();
+             sqlite_cmd.CommandText = "SELECT * FROM " + user + "_Signal";
+             sqlite_cmd.ExecuteNonQuery();
+             sqlite_datareader = sqlite_cmd.ExecuteReader();
+             while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
+             {
+                 GYROX.Enqueue((double)sqlite_datareader["GYROX"]);
+                 GYROY.Enqueue((double)sqlite_datareader["GYROY"]);
+                 ES_TIMESTAMP.Enqueue((double)sqlite_datareader["ES_TIMESTAMP"]);
+                 FUNC_ID.Enqueue((double)sqlite_datareader["FUNC_ID"]);
+                 FUNC_VALUE.Enqueue((double)sqlite_datareader["FUNC_VALUE"]);
+                 SYNC_SIGNAL.Enqueue((double)sqlite_datareader["SYNC_SIGNAL"]);
+                 //section.Enqueue((Int32)sqlite_datareader["section"]);
+
+             }
+             sqlite_conn.Close();
+             Console.WriteLine("Finish Loading Signal Data");
+         }
 
         
         void Loa_EEGData(String User )
@@ -240,28 +306,14 @@ namespace EEGDatabase
         {
             Database db = new Database();
          //   db.CreateUserFinder();
+            
+            db.SetUserName("Che");
             db.CreateUser();
-            db.SetUserName("Chen");
-            db.CreateUser();
-            db.SetUserName("Lion");
-            db.CreateUser();
-            db.SetUserName("Lion");
-            db.CreateUser();
-            db.SetUserName("Chen");
-            db.CreateUser();
-            db.SetUserName("Zijian");
-            db.CreateUser();
-            db.BandPowerInsert("Zijian",53.3 , 90.2, 12.34, 3, "11:11;11");
-           db.BandPowerInsert("Zijian",59.3 , 92.2, 12.34, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",70.3 , 90.2, 12.34, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",90.3 , 90.2, 12.34, 3, "11:11;11");
-            db.BandPowerInsert("Zijian",99.3 , 90.2, 12.34, 3, "11:11;11");
-            db.Load_BandPowerData("Zijian");
-           foreach(double q  in db.alpha)
-               Console.WriteLine(q);
-           db.EEG_Insert("Zijian", 10.3F,  10.8F ,   10.3F,  10.3F,  10.3F,  10.3F,  10.3F,   10.3F,  10.3F ,  10.3F,  10.3F,  10.3F,  10.3F,  10.3F,  10.3F, 2,  "11:11:11");
-           db.Loa_EEGData("Zijian");
-          Console.WriteLine( db.AF3.Peek());
+
+           db.SignalInsert("Che",23.3, 23.4, 12.2, 54.5, 34.3, 3.12, 56.7, 2);
+           db.Load_Signal("Che");
+         //  db.GYROX.Peek();
+         Console.WriteLine(  db.GYROX.Peek());
             Console.ReadKey();
         }
         #endregion

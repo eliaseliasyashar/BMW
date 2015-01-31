@@ -44,6 +44,7 @@ namespace BMW_GUI
             InitializeComponent();
             dataReader = e_dataReader;
             eegDB = db;
+            
 
             /*
             #region BackgroundWorker
