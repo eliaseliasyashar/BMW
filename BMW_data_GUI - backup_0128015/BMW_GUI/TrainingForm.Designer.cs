@@ -104,7 +104,7 @@
             this.listBox_Type.ItemHeight = 16;
             this.listBox_Type.Items.AddRange(new object[] {
             "Relax",
-            "SSVEP- 9HZ",
+            "SSVEP-9HZ",
             "Math-Level1",
             "Math-Level2",
             "Geometric figure rotation",

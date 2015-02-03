@@ -19,7 +19,9 @@ namespace BMW_GUI
         private BackgroundWorker DataWorker;
         public List <EmotivRawEEG> EEGStorer= new List<EmotivRawEEG>();
         public Database eegDB = new Database();
+        public SSVEP_Form ssvep = new SSVEP_Form();
         #endregion
+
 
         private void EmotivDataWorker(object sender, DoWorkEventArgs e)
         {
@@ -113,6 +115,15 @@ namespace BMW_GUI
                             "First, Visualize number 0 on the board," +
                             "Erase it while counting 1, and so on. ";
             }
+            else if (selectedItem == "SSVEP-9HZ")
+            {
+                ssvep.Show();
+                ssvep.SSVEP_timer1.Enabled = true;
+               // ssvep.SSVEP_timer2.Enabled = true;
+
+                //SSVEP_Timer.Enabled = true;
+
+            }
             else
             {
             }
@@ -124,7 +135,8 @@ namespace BMW_GUI
         public void Direction_presubmit(String selectedItem)
         {
             pictureBox1.Image = pictureBox1.InitialImage;
-
+            pictureBox1.Visible = false;
+            //SSVEP_light.Visible = false;
 
             //Relax-baseline
             if (selectedItem == "Relax")
@@ -155,7 +167,12 @@ namespace BMW_GUI
                             "First, Visualize number 0 on the board," +
                             "Erase it while counting 1, and so on. ";
             }
+            else if (selectedItem == "SSVEP-9HZ")
+            {
 
+                richTextBox_Direction.Text = "You will look at the blinking square for SSVEP experiment! ";
+               // SSVEP_light.Visible = true;
+            }
 
 
 
@@ -185,6 +202,12 @@ namespace BMW_GUI
                 listBox_Type.Enabled = true;
                 numOfTick = 0;
                 experimentTimer.Enabled = false;
+                ssvep.SSVEP_timer1.Enabled = false;
+                //ssvep.SSVEP_timer2.Enabled = false;
+                ssvep.Hide();
+
+                //SSVEP_Timer.Enabled = false;
+                //SSVEP_light.Visible = false;
                 if (EEGStorer.Count != 0)
                     WriteFile();
                 else
@@ -294,6 +317,7 @@ namespace BMW_GUI
             file.Close();
         }
 
+      
 
 
     }
