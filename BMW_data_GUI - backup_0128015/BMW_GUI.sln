@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMW_GUI", "BMW_GUI\BMW_GUI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database\Database.csproj", "{A1B1EBBC-A81A-475B-A766-77F9D06E3CEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEmotivSDKTest", "DotNetEmotivSDKTest\DotNetEmotivSDKTest.csproj", "{665DFD72-10EE-492F-BDF7-572D49F1719B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,18 @@ Global
 		{A1B1EBBC-A81A-475B-A766-77F9D06E3CEB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A1B1EBBC-A81A-475B-A766-77F9D06E3CEB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A1B1EBBC-A81A-475B-A766-77F9D06E3CEB}.Release|x86.ActiveCfg = Release|Any CPU
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Debug|x86.ActiveCfg = Debug|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Debug|x86.Build.0 = Debug|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Release|x86.ActiveCfg = Release|x86
+		{665DFD72-10EE-492F-BDF7-572D49F1719B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

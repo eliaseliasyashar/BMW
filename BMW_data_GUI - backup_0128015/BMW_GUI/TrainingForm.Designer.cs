@@ -53,7 +53,7 @@
             // richTextBox_Direction
             // 
             this.richTextBox_Direction.Enabled = false;
-            this.richTextBox_Direction.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.richTextBox_Direction.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.richTextBox_Direction.Location = new System.Drawing.Point(276, 32);
             this.richTextBox_Direction.Name = "richTextBox_Direction";
             this.richTextBox_Direction.ReadOnly = true;

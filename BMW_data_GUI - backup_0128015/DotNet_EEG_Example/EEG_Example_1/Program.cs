@@ -12,6 +12,8 @@ namespace EEG_Example_1
         EmoEngine engine; // Access to the EDK is viaa the EmoEngine 
         int userID = -1; // userID is used to uniquely identify a user's headset
         string filename = "outfile.csv"; // output filename
+        static System.IO.StreamWriter affLog = new System.IO.StreamWriter("affLog.log");
+        static System.IO.StreamWriter engineLog = new System.IO.StreamWriter("engineLog.log");
 
         
         EEG_Logger()
@@ -20,17 +22,158 @@ namespace EEG_Example_1
             engine = EmoEngine.Instance;
             engine.UserAdded += new EmoEngine.UserAddedEventHandler(engine_UserAdded_Event);
             
+            ///Only for Emostate - delete after
+            engine.EmoStateUpdated += new EmoEngine.EmoStateUpdatedEventHandler(engine_EmoStateUpdated);
+            EmoEngine.Instance.AffectivEmoStateUpdated += new EmoEngine.AffectivEmoStateUpdatedEventHandler(engine_AffectivEmoStateUpdated);
+
             // connect to Emoengine.            
             engine.Connect();
 
             // create a header for our output file
             WriteHeader();
         }
+        /*Emostate Only*/
+        static void engine_AffectivEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
+        {
+            EmoState es = e.emoState;
+
+            Single timeFromStart = es.GetTimeFromStart();
+
+            EdkDll.EE_AffectivAlgo_t[] affAlgoList = { 
+                                                      EdkDll.EE_AffectivAlgo_t.AFF_ENGAGEMENT_BOREDOM,
+                                                      EdkDll.EE_AffectivAlgo_t.AFF_EXCITEMENT,
+                                                      EdkDll.EE_AffectivAlgo_t.AFF_FRUSTRATION,
+                                                      EdkDll.EE_AffectivAlgo_t.AFF_MEDITATION,
+                                                      };
+
+            Boolean[] isAffActiveList = new Boolean[affAlgoList.Length];
+
+            Single longTermExcitementScore = es.AffectivGetExcitementLongTermScore();
+            Single shortTermExcitementScore = es.AffectivGetExcitementShortTermScore();
+            for (int i = 0; i < affAlgoList.Length; ++i)
+            {
+                isAffActiveList[i] = es.AffectivIsActive(affAlgoList[i]);
+            }
+
+            Single meditationScore = es.AffectivGetMeditationScore();
+            Single frustrationScore = es.AffectivGetFrustrationScore();
+            Single boredomScore = es.AffectivGetEngagementBoredomScore();
+
+            double rawScoreEc = 0, rawScoreMd = 0, rawScoreFt = 0, rawScoreEg = 0;
+            double minScaleEc = 0, minScaleMd = 0, minScaleFt = 0, minScaleEg = 0;
+            double maxScaleEc = 0, maxScaleMd = 0, maxScaleFt = 0, maxScaleEg = 0;
+            double scaledScoreEc = 0, scaledScoreMd = 0, scaledScoreFt = 0, scaledScoreEg = 0;
+
+            es.AffectivGetExcitementShortTermModelParams(out rawScoreEc, out minScaleEc, out maxScaleEc);
+            if (minScaleEc != maxScaleEc)
+            {
+                if (rawScoreEc < minScaleEc)
+                {
+                    scaledScoreEc = 0;
+                }
+                else if (rawScoreEc > maxScaleEc)
+                {
+                    scaledScoreEc = 1;
+                }
+                else
+                {
+                    scaledScoreEc = (rawScoreEc - minScaleEc) / (maxScaleEc - minScaleEc);
+                }
+                Console.WriteLine("Affectiv Short Excitement: Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreEc, minScaleEc, maxScaleEc, scaledScoreEc);
+            }
+
+            es.AffectivGetEngagementBoredomModelParams(out rawScoreEg, out minScaleEg, out maxScaleEg);
+            if (minScaleEg != maxScaleEg)
+            {
+                if (rawScoreEg < minScaleEg)
+                {
+                    scaledScoreEg = 0;
+                }
+                else if (rawScoreEg > maxScaleEg)
+                {
+                    scaledScoreEg = 1;
+                }
+                else
+                {
+                    scaledScoreEg = (rawScoreEg - minScaleEg) / (maxScaleEg - minScaleEg);
+                }
+                Console.WriteLine("Affectiv Engagement : Raw Score {0:f5}  Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreEg, minScaleEg, maxScaleEg, scaledScoreEg);
+            }
+            es.AffectivGetMeditationModelParams(out rawScoreMd, out minScaleMd, out maxScaleMd);
+            if (minScaleMd != maxScaleMd)
+            {
+                if (rawScoreMd < minScaleMd)
+                {
+                    scaledScoreMd = 0;
+                }
+                else if (rawScoreMd > maxScaleMd)
+                {
+                    scaledScoreMd = 1;
+                }
+                else
+                {
+                    scaledScoreMd = (rawScoreMd - minScaleMd) / (maxScaleMd - minScaleMd);
+                }
+                Console.WriteLine("Affectiv Meditation : Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreMd, minScaleMd, maxScaleMd, scaledScoreMd);
+            }
+            es.AffectivGetFrustrationModelParams(out rawScoreFt, out minScaleFt, out maxScaleFt);
+            if (maxScaleFt != minScaleFt)
+            {
+                if (rawScoreFt < minScaleFt)
+                {
+                    scaledScoreFt = 0;
+                }
+                else if (rawScoreFt > maxScaleFt)
+                {
+                    scaledScoreFt = 1;
+                }
+                else
+                {
+                    scaledScoreFt = (rawScoreFt - minScaleFt) / (maxScaleFt - minScaleFt);
+                }
+                Console.WriteLine("Affectiv Frustration : Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreFt, minScaleFt, maxScaleFt, scaledScoreFt);
+            }
+
+            affLog.Write(
+                "{0},{1},{2},{3},{4},{5},",
+                timeFromStart,
+                longTermExcitementScore, shortTermExcitementScore, meditationScore, frustrationScore, boredomScore);
+
+            for (int i = 0; i < affAlgoList.Length; ++i)
+            {
+                affLog.Write("{0},", isAffActiveList[i]);
+            }
+            affLog.WriteLine("");
+            affLog.Flush();
+        }
+
+        void engine_EmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
+        {
+
+          EmoState es = e.emoState;
+          //Console.WriteLine("User has lower face expression : " + es.ExpressivGetLowerFaceAction().ToString()+ " of strength " + es.ExpressivGetLowerFaceActionPower().ToString() );
+          Int32 numCqChan = es.GetNumContactQualityChannels();
+          EdkDll.EE_EEG_ContactQuality_t[] cq = es.GetContactQualityFromAllChannels();
+            
+          for (Int32 i = 0; i < numCqChan; ++i)
+          {
+              if (cq[i] != es.GetContactQuality(i))
+              {
+                  throw new Exception();
+              }
+          }
+          for (int i = 0; i < cq.Length; ++i)
+          {
+               Console.WriteLine("{0},", cq[i]);
+//              engineLog.Write("{0},", cq[i]);
+          }
+
+        }
 
         void engine_UserAdded_Event(object sender, EmoEngineEventArgs e)
         {
             Console.WriteLine("User Added Event has occured");
-
+             
             // record the user 
             userID = (int)e.userId;
 
@@ -92,14 +235,17 @@ namespace EEG_Example_1
         static void Main(string[] args)
         {
             Console.WriteLine("EEG Data Reader Example");
-
+            
             EEG_Logger p = new EEG_Logger();
 
+            
             for (int i = 0; i < 100; i++)
             {
                 p.Run();
                 Thread.Sleep(100);
             }
+
+            while (true) ;
 
         }
 

@@ -51,16 +51,16 @@
             // rectangleShape2
             // 
             this.rectangleShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
-            this.rectangleShape2.Location = new System.Drawing.Point(625, 200);
+            this.rectangleShape2.Location = new System.Drawing.Point(547, 194);
             this.rectangleShape2.Name = "rectangleShape2";
-            this.rectangleShape2.Size = new System.Drawing.Size(100, 100);
+            this.rectangleShape2.Size = new System.Drawing.Size(200, 200);
             // 
             // rectangleShape1
             // 
             this.rectangleShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
             this.rectangleShape1.Location = new System.Drawing.Point(50, 200);
             this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(100, 100);
+            this.rectangleShape1.Size = new System.Drawing.Size(200, 200);
             // 
             // SSVEP_timer1
             // 
