@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactQuality.cs" />
     <Compile Include="ControlForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SensorContactForm.Designer.cs">
+      <DependentUpon>SensorContactForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SSVEP_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SensorContactForm.resx">
+      <DependentUpon>SensorContactForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SSVEP_Form.resx">
       <DependentUpon>SSVEP_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +154,9 @@
       <Project>{a1b1ebbc-a81a-475b-a766-77f9d06e3ceb}</Project>
       <Name>Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\HeadsetMap.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

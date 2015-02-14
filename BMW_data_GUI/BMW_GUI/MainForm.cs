@@ -31,7 +31,10 @@ namespace BMW_GUI
         #region GloabalVar
 
         public EEG_DataReader dataReader = new EEG_DataReader();
+        public EEG_DataReader dataReader_Control = new EEG_DataReader(true);
+
         Database db = new Database();
+
 
         #endregion
         public MainForm()
@@ -45,10 +48,14 @@ namespace BMW_GUI
 
         private void button_submit_Click(object sender, EventArgs e)
         {
+
+
             button_submit.Enabled = false;
             Boolean operationContinue = true;
-            //User is new
 
+            //User is new
+            /*
+            #region database check
             //if user does not enter any text
             if (textBox_Name.Text == "")
             {
@@ -56,10 +63,10 @@ namespace BMW_GUI
                 operationContinue = false;
             }
         
-            /*if user did enter name - 
-            going through operation to check whether user is eligible to continue operation
+            //if user did enter name - 
+            // through operation to check whether user is eligible to continue operation
              
-             */
+             
             else
             {
                 //if user is new, check if the name user enters existed. If existed, do not proceed.
@@ -86,7 +93,8 @@ namespace BMW_GUI
 
                 }
 
-
+            #endregion
+                */
                 if (operationContinue == true)
                 {
                     switch (listBox_Mode.SelectedIndex)
@@ -96,18 +104,23 @@ namespace BMW_GUI
                         case 0:
                             TF = new TrainingForm(dataReader, db);
                             TF.Show();
+                            //this.Location.X + this.Size.Width, this.Location.Y
 
+
+                           TF.ShowCQ();//TF.Location.X, TF.Location.Y, TF.Size.Width);
+                           //TF.ShowDialog();
                             break;
                         //Control
                         case 1:
-                            CF = new ControlForm();
+                            CF = new ControlForm(dataReader_Control, db);
                             CF.Show();
+                            CF.ShowCQ();
                             break;
 
                         default: break;
                     }
                 }
-            }
+            //}
 
             button_submit.Enabled = true;
 

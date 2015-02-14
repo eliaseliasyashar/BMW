@@ -7,6 +7,16 @@ using System.Reflection;
 
 namespace EEG_Example_1
 {
+
+    public class AffectivValue
+    { 
+        public double boredom;
+        public double excitement;
+        public double frustration;
+        public double meditation;
+     
+    
+    }
     class EEG_Logger
     {
         EmoEngine engine; // Access to the EDK is viaa the EmoEngine 
@@ -14,10 +24,14 @@ namespace EEG_Example_1
         string filename = "outfile.csv"; // output filename
         static System.IO.StreamWriter affLog = new System.IO.StreamWriter("affLog.log");
         static System.IO.StreamWriter engineLog = new System.IO.StreamWriter("engineLog.log");
+        String[] buff = new String[10] ;
+        static  string filen = "out.csv"; // output filename
+        static List<AffectivValue> Affv = new List<AffectivValue>();
 
-        
+    
         EEG_Logger()
         {
+         
             // create the engine
             engine = EmoEngine.Instance;
             engine.UserAdded += new EmoEngine.UserAddedEventHandler(engine_UserAdded_Event);
@@ -30,11 +44,37 @@ namespace EEG_Example_1
             engine.Connect();
 
             // create a header for our output file
-            WriteHeader();
+          //  WriteHeader();
         }
         /*Emostate Only*/
+
+
+       static void WriteAffectiv()
+        {
+            TextWriter file = new StreamWriter(filen, true);
+            string header = "boredom, excitement, frustration,meditation,";
+            
+            file.WriteLine(header);
+          
+            for (int i = 0; i < Affv.Count; i++)
+            {
+                file.Write(Affv[i].boredom + ",");
+
+                file.Write(Affv[i].excitement + ",");
+                file.Write(Affv[i].frustration + ",");
+                file.Write(Affv[i].meditation + ",");
+                file.WriteLine();
+            }
+
+
+            file.Close();
+
+        }
+
         static void engine_AffectivEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
         {
+            //TextWriter file = new StreamWriter(filen, true);
+            AffectivValue af = new AffectivValue();
             EmoState es = e.emoState;
 
             Single timeFromStart = es.GetTimeFromStart();
@@ -65,6 +105,8 @@ namespace EEG_Example_1
             double scaledScoreEc = 0, scaledScoreMd = 0, scaledScoreFt = 0, scaledScoreEg = 0;
 
             es.AffectivGetExcitementShortTermModelParams(out rawScoreEc, out minScaleEc, out maxScaleEc);
+           
+
             if (minScaleEc != maxScaleEc)
             {
                 if (rawScoreEc < minScaleEc)
@@ -79,7 +121,14 @@ namespace EEG_Example_1
                 {
                     scaledScoreEc = (rawScoreEc - minScaleEc) / (maxScaleEc - minScaleEc);
                 }
-                Console.WriteLine("Affectiv Short Excitement: Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreEc, minScaleEc, maxScaleEc, scaledScoreEc);
+                
+             //   Console.WriteLine("Affectiv Short Excitement: Raw Score {0:f7}", rawScoreEc);
+              //  Console.WriteLine("Affectiv Short Excitement: Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreEc, minScaleEc, maxScaleEc, scaledScoreEc);
+                af.excitement = rawScoreEc;
+//                file.Write("Excitement :" + rawScoreEc + " ");
+             
+              //  file.Close();
+
             }
 
             es.AffectivGetEngagementBoredomModelParams(out rawScoreEg, out minScaleEg, out maxScaleEg);
@@ -97,7 +146,9 @@ namespace EEG_Example_1
                 {
                     scaledScoreEg = (rawScoreEg - minScaleEg) / (maxScaleEg - minScaleEg);
                 }
-                Console.WriteLine("Affectiv Engagement : Raw Score {0:f5}  Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreEg, minScaleEg, maxScaleEg, scaledScoreEg);
+              //  Console.WriteLine("Affectiv Engagement : Raw Score {0:f5}  Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreEg, minScaleEg, maxScaleEg, scaledScoreEg);
+                af.boredom = rawScoreEg;
+                //file.Write("Engagement: " + rawScoreEg + " ");
             }
             es.AffectivGetMeditationModelParams(out rawScoreMd, out minScaleMd, out maxScaleMd);
             if (minScaleMd != maxScaleMd)
@@ -114,7 +165,9 @@ namespace EEG_Example_1
                 {
                     scaledScoreMd = (rawScoreMd - minScaleMd) / (maxScaleMd - minScaleMd);
                 }
-                Console.WriteLine("Affectiv Meditation : Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreMd, minScaleMd, maxScaleMd, scaledScoreMd);
+            //    Console.WriteLine("Affectiv Meditation : Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreMd, minScaleMd, maxScaleMd, scaledScoreMd);
+                af.meditation = rawScoreMd;
+               // file.Write(" Meditation :" + rawScoreMd + "  ");
             }
             es.AffectivGetFrustrationModelParams(out rawScoreFt, out minScaleFt, out maxScaleFt);
             if (maxScaleFt != minScaleFt)
@@ -131,9 +184,15 @@ namespace EEG_Example_1
                 {
                     scaledScoreFt = (rawScoreFt - minScaleFt) / (maxScaleFt - minScaleFt);
                 }
-                Console.WriteLine("Affectiv Frustration : Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreFt, minScaleFt, maxScaleFt, scaledScoreFt);
-            }
+              //  Console.WriteLine("Affectiv Frustration : Raw Score {0:f5} Min Scale {1:f5} max Scale {2:f5} Scaled Score {3:f5}\n", rawScoreFt, minScaleFt, maxScaleFt, scaledScoreFt);
+                af.frustration = rawScoreFt;
+                //file.Write("Frustration :" + rawScoreFt + "  ");
+                //file.WriteLine("");
+                //file.Close();
 
+            }
+            Affv.Add(af);
+            
             affLog.Write(
                 "{0},{1},{2},{3},{4},{5},",
                 timeFromStart,
@@ -151,7 +210,7 @@ namespace EEG_Example_1
         {
 
           EmoState es = e.emoState;
-          //Console.WriteLine("User has lower face expression : " + es.ExpressivGetLowerFaceAction().ToString()+ " of strength " + es.ExpressivGetLowerFaceActionPower().ToString() );
+       //   Console.WriteLine("User has lower face expression : " + es.ExpressivGetLowerFaceAction().ToString()+ " of strength " + es.ExpressivGetLowerFaceActionPower().ToString() );
           Int32 numCqChan = es.GetNumContactQualityChannels();
           EdkDll.EE_EEG_ContactQuality_t[] cq = es.GetContactQualityFromAllChannels();
             
@@ -164,7 +223,7 @@ namespace EEG_Example_1
           }
           for (int i = 0; i < cq.Length; ++i)
           {
-               Console.WriteLine("{0},", cq[i]);
+          //     Console.WriteLine("{0},", cq[i]);
 //              engineLog.Write("{0},", cq[i]);
           }
 
@@ -203,8 +262,9 @@ namespace EEG_Example_1
 
             int _bufferSize = data[EdkDll.EE_DataChannel_t.TIMESTAMP].Length;
 
-            Console.WriteLine("Writing " + _bufferSize.ToString() + " lines of data ");
+        //    Console.WriteLine("Writing " + _bufferSize.ToString() + " lines of data ");
 
+            
             // Write the data to a file
             TextWriter file = new StreamWriter(filename,true);
 
@@ -212,12 +272,12 @@ namespace EEG_Example_1
             {
                 // now write the data
                 foreach (EdkDll.EE_DataChannel_t channel in data.Keys)
-                    file.Write(data[channel][i] + ",");
+                  //  file.Write(data[channel][i] + ",");
                 file.WriteLine("");
 
             }
             file.Close();
-
+            
         }
 
         public void WriteHeader()
@@ -234,7 +294,7 @@ namespace EEG_Example_1
 
         static void Main(string[] args)
         {
-            Console.WriteLine("EEG Data Reader Example");
+           // Console.WriteLine("EEG Data Reader Example");
             
             EEG_Logger p = new EEG_Logger();
 
@@ -244,9 +304,8 @@ namespace EEG_Example_1
                 p.Run();
                 Thread.Sleep(100);
             }
-
-            while (true) ;
-
+            WriteAffectiv();
+          
         }
 
     }
