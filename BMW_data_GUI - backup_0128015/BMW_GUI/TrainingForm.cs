@@ -18,7 +18,7 @@ namespace BMW_GUI
         public EEG_DataReader dataReader;
         private BackgroundWorker DataWorker;
         public List <EmotivRawEEG> EEGStorer= new List<EmotivRawEEG>();
-        public Database eegDB = new Database();
+        public Database  = new Database();
         public SSVEP_Form ssvep = new SSVEP_Form();
         #endregion
 
