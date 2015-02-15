@@ -337,7 +337,7 @@ namespace BMW_GUI
             engine.DataAcquisitionEnable((uint)userID, true);
 
             // ask for up to 1 second of buffered data
-            engine.EE_DataSetBufferSizeInSec(10);
+            engine.EE_DataSetBufferSizeInSec(3);
 
         }
 

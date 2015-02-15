@@ -43,6 +43,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button_stop = new System.Windows.Forms.Button();
+            this.textBox_freq = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_alpha = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox_Beta = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button_submit
@@ -87,6 +94,7 @@
             // 
             // EmoUpdate
             // 
+            this.EmoUpdate.Interval = 1000;
             this.EmoUpdate.Tick += new System.EventHandler(this.EmoUpdate_Tick);
             // 
             // label1
@@ -165,11 +173,75 @@
             this.button_stop.UseVisualStyleBackColor = true;
             this.button_stop.Click += new System.EventHandler(this.button_stop_Click);
             // 
+            // textBox_freq
+            // 
+            this.textBox_freq.Location = new System.Drawing.Point(120, 195);
+            this.textBox_freq.Name = "textBox_freq";
+            this.textBox_freq.Size = new System.Drawing.Size(100, 22);
+            this.textBox_freq.TabIndex = 31;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 195);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 12);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Dominant Freq";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(250, 195);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 12);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "FreqCount";
+            // 
+            // textBox_alpha
+            // 
+            this.textBox_alpha.Location = new System.Drawing.Point(120, 231);
+            this.textBox_alpha.Name = "textBox_alpha";
+            this.textBox_alpha.Size = new System.Drawing.Size(100, 22);
+            this.textBox_alpha.TabIndex = 34;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 231);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 12);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Alpha";
+            // 
+            // textBox_Beta
+            // 
+            this.textBox_Beta.Location = new System.Drawing.Point(344, 231);
+            this.textBox_Beta.Name = "textBox_Beta";
+            this.textBox_Beta.Size = new System.Drawing.Size(100, 22);
+            this.textBox_Beta.TabIndex = 36;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(253, 231);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(26, 12);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Beta";
+            // 
             // ControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 210);
+            this.ClientSize = new System.Drawing.Size(564, 273);
+            this.Controls.Add(this.textBox_Beta);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox_alpha);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox_freq);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button_stop);
             this.Controls.Add(this.textBox_ShortExcitement);
             this.Controls.Add(this.textBox_longExcitement);
@@ -205,5 +277,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button_stop;
+        private System.Windows.Forms.TextBox textBox_freq;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox_alpha;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox_Beta;
+        private System.Windows.Forms.Label label9;
     }
 }

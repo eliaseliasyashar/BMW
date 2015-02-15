@@ -31,7 +31,7 @@ namespace BMW_GUI
     /// conventions.                                                                                             
     /// </summary>                           
     /// 
-    class Fourier
+   public class Fourier
     {
         /// <summary>                                                                                            
         /// Compute the forward or inverse Fourier Transform of data, with                                       
