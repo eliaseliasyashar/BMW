@@ -79,6 +79,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.textBox_alphaAF3 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.BluetoothPort = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
             // button_submit
@@ -605,5 +606,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBox_alphaAF3;
         private System.Windows.Forms.Label label23;
+        private System.IO.Ports.SerialPort BluetoothPort;
     }
 }

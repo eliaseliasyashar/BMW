@@ -51,6 +51,9 @@ namespace BMW_GUI
             HideLabel();
             this.FormClosing += new FormClosingEventHandler(ControlForm_ClosingForm);
 
+
+
+
         }
 
         void HideLabel()
@@ -138,12 +141,13 @@ namespace BMW_GUI
         public double avgAlphaOpen= 0;
         public double avgBetaOpen= 0;
 
-        public Boolean closeEye = false;
+        public int halfSec = 0;
+        public Boolean CloseEyeTrigger = false;
 
 
         private void DataTimer_Tick(object sender, EventArgs e)
         {
-            //just in case needing to clear data buffer
+            //just in case needing to clear data buffer - discard data by not doing anything to it
             if (!OPStart)
             {
                 List<EmotivRawEEG> receivedData = dataReader.DataCollect();
@@ -175,6 +179,7 @@ namespace BMW_GUI
                 }
                 #endregion
 
+                #region declared temp variable
                 int maxFreqO1 = 0, maxFreqF3, maxFreqF4, maxFreqF7, maxFreqF8, maxFreqAF3, maxFreqAF4;
             //    double maxMag = 0;
                 double alphaPowerO1=0, betaPowerO1 = 0;
@@ -184,13 +189,16 @@ namespace BMW_GUI
                 double alphaPowerF8 = 0, betaPowerF8= 0;
                 double alphaPowerAF3 = 0, betaPowerAF3 = 0;
                 double alphaPowerAF4 = 0, betaPowerAF4 = 0;
+                #endregion 
 
                 int sampleSize = 128;
                 /*If one of the channel has sample size larger than the given value -
                  all channel did. */
+
                 if (O1List.Count >= sampleSize)
                 {
-                   
+
+                    #region compute  Alpha beta power
                     computePower(O1List,sampleSize, out maxFreqO1, out alphaPowerO1, out betaPowerO1);
                     computePower(F3List, sampleSize, out maxFreqF3, out alphaPowerF3, out betaPowerF3);
                     computePower(F4List, sampleSize, out maxFreqF4, out alphaPowerF4, out betaPowerF4);
@@ -198,8 +206,8 @@ namespace BMW_GUI
                     computePower(F8List, sampleSize, out maxFreqF8, out alphaPowerF8, out betaPowerF8);
                     computePower(AF3List, sampleSize, out maxFreqAF3, out alphaPowerAF3, out betaPowerAF3);
                     computePower(AF4List, sampleSize, out maxFreqAF4, out alphaPowerAF4, out betaPowerAF4);
+                    #endregion
 
-   
 
                     BandPower bp = new BandPower() { alpha_O1 = alphaPowerO1, beta_O1 = betaPowerO1, dominantFreq_O1=maxFreqO1,
                     alpha_F3=alphaPowerF3, beta_F3 =betaPowerF3, alpha_F4=alphaPowerF4, beta_F4 = betaPowerF4,
@@ -207,6 +215,7 @@ namespace BMW_GUI
                     alpha_AF3 = alphaPowerAF3, beta_AF3 = betaPowerAF3, alpha_AF4 = alphaPowerAF4, beta_AF4 = betaPowerAF4};
                     PowerStorer.Add(bp);
 
+                    #region comments out
                     /*
                      * 
                      // Compute Eye Open Avg Alpha & Beta
@@ -236,7 +245,7 @@ namespace BMW_GUI
                    }
                     */
 
-
+                    #endregion
 
                     if (PowerStorer.Count >= 2)
                     {
@@ -249,16 +258,26 @@ namespace BMW_GUI
                     }
 
                     //Condition for Close / Open eyes trigger
-                    if (alphaPowerO1 >= 60 && alphaPowerO1 <= 100)
+                    //if close eye for 2 seconds frame already - reset CloseEye second
+
+                    if (alphaPowerO1 >= 60 && alphaPowerO1 <= 100 && betaPowerO1 <= 30)
                     {
-                        label11.Text = "Eye Close";
+
+                        CloseEyeTrigger = true;
 
                     }
-                    else 
+                    else
                     {
-                        label11.Text = "Eye Open";
+
+                        CloseEyeTrigger = false;
                     }
- 
+
+                    
+
+
+
+
+                    #region update TextBox
                     textBox_freq.Text = maxFreqO1.ToString();
                     textBox_alphaO1.Text=alphaPowerO1.ToString();
                     textBox_BetaO1.Text = betaPowerO1.ToString();
@@ -280,13 +299,16 @@ namespace BMW_GUI
                     
                     textBox_alphaAF4.Text = alphaPowerAF4.ToString();
                     textBox_BetaAF4.Text = betaPowerAF4.ToString();
+                    #endregion
 
+                    #region update Listbox
                     //list box
                     listBox1.Items.Add("Alpha: " + alphaPowerO1.ToString());
+               //     listBox1.Items.Add("Alpha Diff:" + avgAlphaPDifference.ToString());
                     listBox1.SelectedIndex = listBox1.Items.Count - 1;
                     listBox1.SelectedIndex = -1;
-
-                   // O1List.RemoveRange(0, 64);
+                    #endregion
+                    // O1List.RemoveRange(0, 64);
 
                     }
 
@@ -370,9 +392,11 @@ namespace BMW_GUI
              string header = "AlphaO1, BetaO1, DominantFreqO1, AlphaF3, BetaF3, AlphaF4, BetaF4, AlphaF7, BetaF7, AlphaF8, BetaF8, AlphaAF3, BetaAF3, AlphaAF4, BetaAF4 ";
 
             file.WriteLine(header);
+
             // Write the data to a file
             for (int i = 0; i < PowerStorer.Count; i++)
             {
+                #region Write alpha beta power to file
                 file.Write(PowerStorer[i].alpha_O1 + ", ");
                 file.Write(PowerStorer[i].beta_O1 + ",");
                 file.Write(PowerStorer[i].dominantFreq_O1 + ",");
@@ -388,7 +412,7 @@ namespace BMW_GUI
                 file.Write(PowerStorer[i].beta_AF3 + ",");
                 file.Write(PowerStorer[i].alpha_AF4 + ", ");
                 file.Write(PowerStorer[i].beta_AF4 + ",");
-                
+                #endregion
                 file.WriteLine("");
             
             }
