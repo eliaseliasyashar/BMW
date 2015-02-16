@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EEGDatabase;
+using System.IO;
 
 namespace BMW_GUI
 {
-  
+
+    
     public partial class ControlForm : Form
     {
 
@@ -20,6 +22,16 @@ namespace BMW_GUI
         public EEG_DataReader dataReader;
 
         public List<double> O1List= new List<double>();
+        public List<double> F3List = new List<double>();
+        public List<double> F4List = new List<double>();
+        public List<double> AF3List = new List<double>();
+        public List<double> AF4List = new List<double>();
+        public List<double> F7List = new List<double>();
+        public List<double> F8List = new List<double>();
+
+        public List<EmotivRawEEG> EEGStorer = new List<EmotivRawEEG>();
+        public List<BandPower> PowerStorer = new List<BandPower>();
+
         public Database eegDB = new Database();
         public SSVEP_Form ssvep;
         public SensorContactForm cqForm;
@@ -123,78 +135,158 @@ namespace BMW_GUI
         
         }
         int index = 0;
+        public double avgAlphaOpen= 0;
+        public double avgBetaOpen= 0;
+
+        public Boolean closeEye = false;
+
 
         private void DataTimer_Tick(object sender, EventArgs e)
         {
+            //just in case needing to clear data buffer
+            if (!OPStart)
+            {
+                List<EmotivRawEEG> receivedData = dataReader.DataCollect();
+            }
 
             if (OPStart)
             {
                 List<EmotivRawEEG> receivedData = dataReader.DataCollect();
 
+                #region add received Data
                 if (receivedData != null)
                 {
-                    
-
                     /*add retreive EEG data to the general list*/
-                    /*
                     foreach (EmotivRawEEG data in receivedData)
                     {
                         EEGStorer.Add(data);
                     }
-                     * */
 
                     for (int i = 0; i < receivedData.Count; i++)
                     {
                         O1List.Add(receivedData[i].O1);
+                        F3List.Add(receivedData[i].F3);
+                        F4List.Add(receivedData[i].F4);
+                        F7List.Add(receivedData[i].F7);
+                        F8List.Add(receivedData[i].F8);
+                        AF3List.Add(receivedData[i].AF3);
+                        AF4List.Add(receivedData[i].AF4);
                     }
                 }
+                #endregion
 
-                double maxFreq = 0;
-                double maxMag = 0;
-                double alphaPower=0;
-                double betaPower = 0;
-                if (O1List.Count >= 128)
+                int maxFreqO1 = 0, maxFreqF3, maxFreqF4, maxFreqF7, maxFreqF8, maxFreqAF3, maxFreqAF4;
+            //    double maxMag = 0;
+                double alphaPowerO1=0, betaPowerO1 = 0;
+                double alphaPowerF3 = 0, betaPowerF3 = 0;
+                double alphaPowerF4 = 0, betaPowerF4 = 0;
+                double alphaPowerF7 = 0, betaPowerF7 = 0;
+                double alphaPowerF8 = 0, betaPowerF8= 0;
+                double alphaPowerAF3 = 0, betaPowerAF3 = 0;
+                double alphaPowerAF4 = 0, betaPowerAF4 = 0;
+
+                int sampleSize = 128;
+                /*If one of the channel has sample size larger than the given value -
+                 all channel did. */
+                if (O1List.Count >= sampleSize)
                 {
-                    List<double> range = O1List.GetRange(0, 128);
+                   
+                    computePower(O1List,sampleSize, out maxFreqO1, out alphaPowerO1, out betaPowerO1);
+                    computePower(F3List, sampleSize, out maxFreqF3, out alphaPowerF3, out betaPowerF3);
+                    computePower(F4List, sampleSize, out maxFreqF4, out alphaPowerF4, out betaPowerF4);
+                    computePower(F7List, sampleSize, out maxFreqF7, out alphaPowerF7, out betaPowerF7);
+                    computePower(F8List, sampleSize, out maxFreqF8, out alphaPowerF8, out betaPowerF8);
+                    computePower(AF3List, sampleSize, out maxFreqAF3, out alphaPowerAF3, out betaPowerAF3);
+                    computePower(AF4List, sampleSize, out maxFreqAF4, out alphaPowerAF4, out betaPowerAF4);
 
-                    double[] FFT_data = new double[128];
-                    FFT_data = range.ToArray();
-                    ft.RealFFT(FFT_data, true);
+   
 
-                    /*Compute MaxFreq*/
-                    for (int i = 0; i < FFT_data.Length; i += 2)
-                    {
-                        if (i > 6 && (Math.Pow(FFT_data[i], 2)) + Math.Pow(FFT_data[i + 1], 2) > maxMag)
-                        { 
-                            maxFreq = Math.Pow(FFT_data[i], 2) + Math.Pow(FFT_data[i + 1], 2);
-                            maxFreq = (i * 128 / FFT_data.Length) / 2;
-                        }
+                    BandPower bp = new BandPower() { alpha_O1 = alphaPowerO1, beta_O1 = betaPowerO1, dominantFreq_O1=maxFreqO1,
+                    alpha_F3=alphaPowerF3, beta_F3 =betaPowerF3, alpha_F4=alphaPowerF4, beta_F4 = betaPowerF4,
+                    alpha_F7= alphaPowerF7, beta_F7 = betaPowerF7, alpha_F8=alphaPowerF8, beta_F8 = betaPowerF8,
+                    alpha_AF3 = alphaPowerAF3, beta_AF3 = betaPowerAF3, alpha_AF4 = alphaPowerAF4, beta_AF4 = betaPowerAF4};
+                    PowerStorer.Add(bp);
+
+                    /*
+                     * 
+                     // Compute Eye Open Avg Alpha & Beta
+
+                    //Compute Percent difference betweeen the the avgAlphaOpen  & current alpha power
+                   //if haven't detected Close eye 
                     
+                  if(closeEye ==false)
+                  {
+                        if(PowerStorer.Count == 1) {avgAlphaOpen=alphaPower; avgBetaOpen = betaPower;}
+                        else if (PowerStorer.Count >1)
+                        {
+                            if((avgAlphaOpen - alphaPower)/avgAlphaOpen <= 4) // anythreshold
+                            {
+                                for(int j=0; j< PowerStorer.Count;j++)
+                                {
+                                avgAlphaOpen += PowerStorer[j].alpha;
+                                }
+                                avgAlphaOpen = avgAlphaOpen / PowerStorer.Count;
+                             }
+                            else
+                            {
+                                closeEye = true;
+                                
+                            }
+                        }
+                   }
+                    */
+
+
+
+                    if (PowerStorer.Count >= 2)
+                    {
+                        double avgAlphaPDifference = 0;
+                        avgAlphaPDifference = (alphaPowerO1 -PowerStorer[PowerStorer.Count - 2].alpha_O1) / PowerStorer[PowerStorer.Count - 2].alpha_O1;
+                        textBox_AlphaDiff.Text = avgAlphaPDifference.ToString();
+
+                        double avgBetaPDifference =(betaPowerO1 - PowerStorer[PowerStorer.Count - 2].beta_O1) / PowerStorer[PowerStorer.Count - 2].beta_O1;
+                        textBox_BetaDiff.Text = avgBetaPDifference.ToString();
                     }
 
-                    /*Compute Alpha*/
-                    for (int j = 8*2; j < 12*2; j += 2)
+                    //Condition for Close / Open eyes trigger
+                    if (alphaPowerO1 >= 60 && alphaPowerO1 <= 100)
                     {
-                        
-                            alphaPower += Math.Pow(FFT_data[j], 2) + Math.Pow(FFT_data[j + 1], 2);
-                            
-                     }
-
-                     /*Compute Beta*/
-                    for (int k = 13*2; k < FFT_data.Length; k += 2)
-                    {
-                       
-                            betaPower += Math.Pow(FFT_data[k], 2) + Math.Pow(FFT_data[k + 1], 2);
-                            
-                        
+                        label11.Text = "Eye Close";
 
                     }
+                    else 
+                    {
+                        label11.Text = "Eye Open";
+                    }
+ 
+                    textBox_freq.Text = maxFreqO1.ToString();
+                    textBox_alphaO1.Text=alphaPowerO1.ToString();
+                    textBox_BetaO1.Text = betaPowerO1.ToString();
 
-                      //textBox_alpha.Text 
-                   textBox_freq.Text = maxFreq.ToString();
-                    textBox_alpha.Text=alphaPower.ToString();
-                    textBox_Beta.Text = betaPower.ToString();
-                    O1List.RemoveRange(0, 64);
+                    textBox_alphaF3.Text = alphaPowerF3.ToString();
+                    textBox_BetaF3.Text = betaPowerF3.ToString();
+                    
+                    textBox_alphaF4.Text = alphaPowerF4.ToString();
+                    textBox_BetaF4.Text = betaPowerF4.ToString();
+                    
+                    textBox_alphaF7.Text = alphaPowerF7.ToString();
+                    textBox_BetaF7.Text = betaPowerF7.ToString();
+                    
+                    textBox_alphaF8.Text = alphaPowerF8.ToString();
+                    textBox_BetaF8.Text = betaPowerF8.ToString();
+                    
+                    textBox_alphaAF3.Text = alphaPowerAF3.ToString();
+                    textBox_BetaAF3.Text = betaPowerAF3.ToString();
+                    
+                    textBox_alphaAF4.Text = alphaPowerAF4.ToString();
+                    textBox_BetaAF4.Text = betaPowerAF4.ToString();
+
+                    //list box
+                    listBox1.Items.Add("Alpha: " + alphaPowerO1.ToString());
+                    listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                    listBox1.SelectedIndex = -1;
+
+                   // O1List.RemoveRange(0, 64);
 
                     }
 
@@ -203,10 +295,6 @@ namespace BMW_GUI
                 }
                 
               
-
-                
-
-                //   if (receivedData == null) { label3.Text = "null"; }
             
         }
 
@@ -256,11 +344,180 @@ namespace BMW_GUI
               listBox_Type.Enabled = true;
               OPStart = false;
 
+
+              /*may delete*/
+
+              if (EEGStorer.Count != 0)
+              {
+
+                  WritePowerFile();
+                  WriteFile();
+              }
+
         }
-       
+
+        public void WritePowerFile()
+        {
+               filename = listBox_Type.SelectedItem.ToString() + "_Power_O1" +
+               EEGStorer[0].date.ToString("hh") +
+               EEGStorer[0].date.ToString("mm") +
+               EEGStorer[0].date.ToString("MMM") +
+               EEGStorer[0].date.ToString("dd") +
+               EEGStorer[0].date.ToString("yyyy") + ".csv";
+
+             TextWriter file = new StreamWriter(filename, false);
+
+             string header = "AlphaO1, BetaO1, DominantFreqO1, AlphaF3, BetaF3, AlphaF4, BetaF4, AlphaF7, BetaF7, AlphaF8, BetaF8, AlphaAF3, BetaAF3, AlphaAF4, BetaAF4 ";
+
+            file.WriteLine(header);
+            // Write the data to a file
+            for (int i = 0; i < PowerStorer.Count; i++)
+            {
+                file.Write(PowerStorer[i].alpha_O1 + ", ");
+                file.Write(PowerStorer[i].beta_O1 + ",");
+                file.Write(PowerStorer[i].dominantFreq_O1 + ",");
+                file.Write(PowerStorer[i].alpha_F3 + ", ");
+                file.Write(PowerStorer[i].beta_F3 + ",");
+                file.Write(PowerStorer[i].alpha_F4 + ", ");
+                file.Write(PowerStorer[i].beta_F4 + ",");
+                file.Write(PowerStorer[i].alpha_F7 + ", ");
+                file.Write(PowerStorer[i].beta_F7 + ",");
+                file.Write(PowerStorer[i].alpha_F8 + ", ");
+                file.Write(PowerStorer[i].beta_F8 + ",");
+                file.Write(PowerStorer[i].alpha_AF3 + ", ");
+                file.Write(PowerStorer[i].beta_AF3 + ",");
+                file.Write(PowerStorer[i].alpha_AF4 + ", ");
+                file.Write(PowerStorer[i].beta_AF4 + ",");
+                
+                file.WriteLine("");
+            
+            }
+
+            PowerStorer.Clear();
+            file.Close();    
+        
+        }
+
+        public void computePower(List<double> channel, int sampleSize, out int maxFreq, out double alphaPower, out double betaPower)
+        {
+            List<double> range = channel.GetRange(0, sampleSize);
+            double[] FFT_data = new double[sampleSize];
+            FFT_data = range.ToArray();
+
+            double maxMag = 0;
+            maxFreq = 0;
+            alphaPower = 0;
+            betaPower = 0;
+            ft.RealFFT(FFT_data, true);
            
+            
+            /*Compute MaxFreq*/
+            for (int i = 0; i < FFT_data.Length; i += 2){
+                if (i > 6 && ((Math.Pow(FFT_data[i], 2)) + Math.Pow(FFT_data[i + 1], 2) > maxMag))
+                {
+                    maxMag = Math.Pow(FFT_data[i], 2) + Math.Pow(FFT_data[i + 1], 2);
+                    maxFreq = (i * 128 / FFT_data.Length) / 2;
+                }
+            }
+
+            /*Compute Alpha*/
+            for (int j = 8 * 2; j <= 12 * 2; j += 2){
+
+                alphaPower += Math.Pow(FFT_data[j], 2) + Math.Pow(FFT_data[j + 1], 2);
+            }
+
+            /*Compute Beta*/
+            for (int k = 13 * 2; k <= 30 * 2; k += 2){
+
+                betaPower += Math.Pow(FFT_data[k], 2) + Math.Pow(FFT_data[k + 1], 2);
+           }
+
+
+            alphaPower = Math.Sqrt(alphaPower);
+            betaPower = Math.Sqrt(betaPower);
+
+            channel.RemoveRange(0, 64);
+        }
+
+        string filename = "outfile_testing.csv"; // output filename
+        public void WriteFile()
+        {
+
+            filename = listBox_Type.SelectedItem.ToString() + "_" +
+                EEGStorer[0].date.ToString("hh") +
+                EEGStorer[0].date.ToString("mm") +
+                EEGStorer[0].date.ToString("MMM") +
+                EEGStorer[0].date.ToString("dd") +
+                EEGStorer[0].date.ToString("yyyy") + ".csv";
+            TextWriter file = new StreamWriter(filename, false);
+
+            string header = "COUNTER,INTERPOLATED,RAW_CQ,AF3,F7,F3, FC5, T7, P7, O1, O2,P8" +
+                            ", T8, FC6, F4,F8, AF4,GYROX, GYROY, TIMESTAMP, ES_TIMESTAMP" +
+                            "FUNC_ID, FUNC_VALUE, MARKER, SYNC_SIGNAL,DateTime";
+
+            file.WriteLine(header);
+            // Write the data to a file
+
+            for (int i = 0; i < EEGStorer.Count; i++)
+            {
+
+                // now write the data
+                #region write each variable to file
+                file.Write(EEGStorer[i].COUNTER + ",");
+                file.Write(EEGStorer[i].INTERPOLATED + ",");
+                file.Write(EEGStorer[i].RAW_CQ + ",");
+                file.Write(EEGStorer[i].AF3 + ",");
+                file.Write(EEGStorer[i].F7 + ",");
+                file.Write(EEGStorer[i].F3 + ",");
+                file.Write(EEGStorer[i].FC5 + ",");
+                file.Write(EEGStorer[i].T7 + ",");
+                file.Write(EEGStorer[i].P7 + ",");
+                file.Write(EEGStorer[i].O1 + ",");
+                file.Write(EEGStorer[i].O2 + ",");
+                file.Write(EEGStorer[i].P8 + ",");
+                file.Write(EEGStorer[i].T8 + ",");
+                file.Write(EEGStorer[i].FC6 + ",");
+                file.Write(EEGStorer[i].F4 + ",");
+                file.Write(EEGStorer[i].F8 + ",");
+                file.Write(EEGStorer[i].AF4 + ",");
+                file.Write(EEGStorer[i].GYROX + ",");
+                file.Write(EEGStorer[i].GYROY + ",");
+                file.Write(EEGStorer[i].TIMESTAMP + ",");
+                file.Write(EEGStorer[i].ES_TIMESTAMP + ",");
+                file.Write(EEGStorer[i].FUNC_ID + ",");
+                file.Write(EEGStorer[i].FUNC_VALUE + ",");
+                file.Write(EEGStorer[i].MARKER + ",");
+                file.Write(EEGStorer[i].SYNC_SIGNAL + ",");
+                file.Write(EEGStorer[i].date + ",");
+
+                #endregion
+
+
+                file.WriteLine("");
+
+            }
+            EEGStorer.Clear();
+            file.Close();
+        }
 
 
     }
-  
+    public class BandPower
+    {
+        public double alpha_O1 { get; set; }
+        public double beta_O1 { get; set; }
+        public int dominantFreq_O1 { get; set; }
+        public double alpha_F3 { get; set; }
+        public double beta_F3 { get; set; }
+        public double alpha_F4 { get; set; }
+        public double beta_F4 { get; set; }
+        public double alpha_F7 { get; set; }
+        public double beta_F7 { get; set; }
+        public double alpha_F8 { get; set; }
+        public double beta_F8 { get; set; }
+        public double alpha_AF3 { get; set; }
+        public double beta_AF3 { get; set; }
+        public double alpha_AF4 { get; set; }
+        public double beta_AF4 { get; set; }
+    }
 }
