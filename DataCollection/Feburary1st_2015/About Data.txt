@@ -1,0 +1,22 @@
+8Hz - 125
+
+1) look at light -> 10 s- > don't look
+2) look at light -> 10 s- > don't look, yellow light @ O1
+3) look at light -> 10 s- > don't look
+4) Look at light -> 20s
+
+11Hz - 91 Hz
+1)  look at light -> 10 s- > don't look
+2)  don't look-> 10 s- > look at light 
+
+
+13Hz - 77Hz
+1) look at light -> 10s -> don't look
+2) don't look -> 10s -> look at it
+
+15 Hz - 60Hz
+1) look at light -> 10s -> don't look
+2) don't look at light -> 10s -> look
+
+look at notepad
+1)for 20 s
