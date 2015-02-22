@@ -12,8 +12,10 @@ namespace EEGDatabase
          // for table UserFinder
          String user="Zijian";
         // for table bandpower
-         Queue<double> alpha = new Queue<double>();
-         Queue<double> beta = new Queue<double>();
+         Queue<double> alpha_o1 = new Queue<double>();
+         Queue<double> beta_o1 = new Queue<double>();
+         Queue<bool> closedEye = new Queue<bool>();
+
         // for table EEG
          Queue<double> AF3 = new Queue<double>();
          Queue<double> F7 = new Queue<double>();
@@ -44,6 +46,8 @@ namespace EEGDatabase
     
          Queue<int> section = new Queue<int>();
          Queue<String> ComputerTime = new Queue<String>();
+
+
         public Boolean CreateUser()
         {
             // We use these three SQLite objects:
@@ -94,7 +98,7 @@ namespace EEGDatabase
                 sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG( AF3 double , F7 double , F3 double,FC5 double, T7 double,P7 double,O1 double, O2 double,P8 double ,T8 double,FC6 double,F4 double,F8 double,AF4 double,TimeStamp double,section integer, ComputerTime varchar);";
                     sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_EEG\n");
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "( Alpha double, Beta double,TimeStamp double,section integer, ComputerTime varchar);";
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "( Alpha double, Beta double, EyeClosed boolean);";
                 sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_BandPower\n");
                 sqlite_cmd.CommandText = "CREATE TABLE " + user + "_Signal" + "(GYROX double ,GYROY double ,ES_TIMESTAMP double ,FUNC_ID double,FUNC_VALUE double,MARKER double,SYNC_SIGNAL double, section integer) ;";
@@ -156,7 +160,7 @@ namespace EEGDatabase
             sqlite_conn.Close();
         }
 
-         void BandPowerInsert(String UserName,double Alpha , double Beta, double TimeStamp, int section, String ComputerTime)
+         void BandPowerInsert(String UserName,double Alpha , double Beta, Boolean EyeClosed)
         {
             // We use these three SQLite objects:
             SQLiteConnection sqlite_conn;
@@ -168,7 +172,7 @@ namespace EEGDatabase
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (Alpha , Beta ,TimeStamp ,section , ComputerTime ) VALUES('"+user+"',"+Alpha+","+Beta+","+TimeStamp+","+section+",'"+ComputerTime+"');";
+            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (Alpha , Beta ,EyeClosed ) VALUES('"+user+"',"+Alpha+","+Beta+","+EyeClosed+"');";
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
@@ -279,8 +283,9 @@ namespace EEGDatabase
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read()) // Read() returns true if there is still a result line to read
             {
-                alpha.Enqueue((double)sqlite_datareader["Alpha"]);
-                beta.Enqueue((double)sqlite_datareader["Beta"]);
+                alpha_o1.Enqueue((double)sqlite_datareader["Alpha"]);
+                beta_o1.Enqueue((double)sqlite_datareader["Beta"]);
+                closedEye.Enqueue((bool)sqlite_datareader["EyeClosed"]);
             }
              sqlite_conn.Close();
              Console.WriteLine("Finish Loading BandPower Data\n");

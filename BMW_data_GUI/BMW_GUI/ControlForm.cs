@@ -248,6 +248,7 @@ namespace BMW_GUI
                    }
                     */
 
+
                     #endregion
 
                     if (PowerStorer.Count >= 2)
@@ -279,6 +280,36 @@ namespace BMW_GUI
                      
 
                     
+
+
+
+            //        #endregion
+
+                    if (PowerStorer.Count >= 2)
+                    {
+                        double avgAlphaPDifference = 0;
+                        avgAlphaPDifference = (alphaPowerO1 -PowerStorer[PowerStorer.Count - 2].alpha_O1) / PowerStorer[PowerStorer.Count - 2].alpha_O1;
+                        textBox_AlphaDiff.Text = avgAlphaPDifference.ToString();
+
+                        double avgBetaPDifference =(betaPowerO1 - PowerStorer[PowerStorer.Count - 2].beta_O1) / PowerStorer[PowerStorer.Count - 2].beta_O1;
+                        textBox_BetaDiff.Text = avgBetaPDifference.ToString();
+                    }
+
+                    //Condition for Close / Open eyes trigger
+                    //if close eye for 2 seconds frame already - reset CloseEye second
+
+                    if (alphaPowerO1 >= 60 && alphaPowerO1 <= 100 && betaPowerO1 <= 30)
+                    {
+
+                        CloseEyeTrigger = true;
+
+                    }
+                    else
+                    {
+
+                        CloseEyeTrigger = false;
+                    }
+
 
                     
 
@@ -452,6 +483,7 @@ namespace BMW_GUI
                 }
             }
 
+
             /*Compute Alpha*/
             for (int j = 8 * 2; j <= 12 * 2; j += 2){
 
@@ -472,7 +504,7 @@ namespace BMW_GUI
         }
 
         string filename = "outfile_testing.csv"; // output filename
-        public void WriteFile()
+        public void WriteFile() //
         {
 
             filename = listBox_Type.SelectedItem.ToString() + "_" +
@@ -535,7 +567,31 @@ namespace BMW_GUI
         private void textBox_longExcitement_TextChanged(object sender, EventArgs e)
         {
 
+        
+
+
+
+            /*Compute Alpha*/
+            for (int j = 8 * 2; j <= 12 * 2; j += 2){
+
+                alphaPower += Math.Pow(FFT_data[j], 2) + Math.Pow(FFT_data[j + 1], 2);
+            }
+
+            /*Compute Beta*/
+            for (int k = 13 * 2; k <= 30 * 2; k += 2){
+
+                betaPower += Math.Pow(FFT_data[k], 2) + Math.Pow(FFT_data[k + 1], 2);
+           }
+
+
+            alphaPower = Math.Sqrt(alphaPower);
+            betaPower = Math.Sqrt(betaPower);
+
+            channel.RemoveRange(0, 64);
         }
+
+      //  string filename = "outfile_testing.csv"; // output filename
+ 
 
 
     }
