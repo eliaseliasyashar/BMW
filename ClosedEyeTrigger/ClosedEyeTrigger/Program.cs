@@ -39,7 +39,7 @@ namespace ClosedEyeTrigger
         double LowAlpha_NOTrigger = 0.0;
         double HighBeta_NOTrigger = 0.0;
         double LowBeta_NOTrigger = 0.0;
-        double NOTrigger = 0.0;
+      //  double NOTrigger = 0.0;
 
         double P_HighAlpha_NOTrigger = 0.0;
         double P_LowAlpha_NOTrigger = 0.0;
@@ -57,7 +57,9 @@ namespace ClosedEyeTrigger
         void Find_StablePoint()
        {
            alpha_stable = (alpha_o1.Max()+alpha_o1.Min())/2.0;
+           Console.WriteLine("alpha_stable" + alpha_stable);
            beta_stable = (beta_o1.Max() + beta_o1.Min()) / 2.0;
+           Console.WriteLine("beta_stable" + beta_stable);
        }
 
         void AnalysisTranningSet()
@@ -78,10 +80,9 @@ namespace ClosedEyeTrigger
                 else if (alpha_o1[i] <= alpha_stable && trigger[i] == false)
                     LowAlpha_NOTrigger++;
 
-                P_HighAlpha_Trigger = HighAlpha_Trigger / Trigger;
-                P_HighAlpha_NOTrigger = HighAlpha_NOTrigger / (trigger.Count - Trigger);
-                P_LowAlpha_Trigger = LowAlpha_Trigger / Trigger;
-                P_LowAlpha_NOTrigger = LowAlpha_NOTrigger / (trigger.Count - Trigger);
+
+                
+               
 
 
                 // update beta status
@@ -93,6 +94,19 @@ namespace ClosedEyeTrigger
                      LowBeta_Trigger++;
                  else if (beta_o1[i] <= beta_stable && trigger[i] == false)
                      LowBeta_NOTrigger++;
+            }
+
+
+            P_HighAlpha_Trigger = HighAlpha_Trigger / Trigger;
+                P_HighAlpha_NOTrigger = HighAlpha_NOTrigger / (trigger.Count - Trigger);
+                P_LowAlpha_Trigger = LowAlpha_Trigger / Trigger;
+                P_LowAlpha_NOTrigger = LowAlpha_NOTrigger / (trigger.Count - Trigger);
+
+
+                Console.WriteLine("P_HighAlpha_Trigger " + P_HighAlpha_Trigger);
+                Console.WriteLine("P_HighAlpha_NOTrigger " + P_HighAlpha_NOTrigger);
+                Console.WriteLine("P_LowAlpha_Trigger " + P_LowAlpha_Trigger);
+                Console.WriteLine(" P_LowAlpha_NOTrigger " + P_LowAlpha_NOTrigger);
 
                  P_Trigger = Trigger / trigger.Count;
                  P_HighBeta_Trigger = HighBeta_Trigger / Trigger;
@@ -106,7 +120,8 @@ namespace ClosedEyeTrigger
                 Console.WriteLine("P_HighBeta_NOTrigger " + P_HighBeta_NOTrigger);
                 Console.WriteLine(" P_LowBeta_Trigger " + P_LowBeta_Trigger);
                 Console.WriteLine(" P_LowBeta_NOTrigger " + P_LowBeta_NOTrigger);
-            }
+                Console.WriteLine("\n\n\n");
+            
         }
 
     bool classify(double alpha , double beta )
@@ -117,19 +132,21 @@ namespace ClosedEyeTrigger
         if(alpha <= alpha_stable && beta <= beta_stable)
         {
             P_on = P_LowAlpha_Trigger *P_LowBeta_Trigger* P_Trigger;
-            P_off = P_LowAlpha_NOTrigger * P_LowBeta_NOTrigger * P_NOTrigger;
+            Console.WriteLine("P_on" + P_on);
+            P_off = P_LowAlpha_NOTrigger * P_LowBeta_NOTrigger * (1-P_Trigger);
+            Console.WriteLine("P_off" + P_off);
         }
         else if(alpha > alpha_stable && beta <= beta_stable){
             P_on = P_HighAlpha_Trigger *P_LowBeta_Trigger* P_Trigger;
-            P_off = P_HighAlpha_NOTrigger*P_LowBeta_NOTrigger*P_NOTrigger;
+            P_off = P_HighAlpha_NOTrigger * P_LowBeta_NOTrigger * (1 - P_Trigger);
         }
         else if(alpha > alpha_stable && beta > beta_stable){
              P_on = P_HighAlpha_Trigger *P_HighBeta_Trigger* P_Trigger;
-             P_off = P_HighAlpha_NOTrigger * P_HighBeta_NOTrigger * P_NOTrigger;
+             P_off = P_HighAlpha_NOTrigger * P_HighBeta_NOTrigger*(1 - P_Trigger);
         }
         else{
              P_on=P_LowAlpha_Trigger*P_HighBeta_Trigger*P_Trigger;
-             P_off=P_LowAlpha_NOTrigger*P_HighBeta_NOTrigger*P_NOTrigger;
+             P_off = P_LowAlpha_NOTrigger * P_HighBeta_NOTrigger * (1 - P_Trigger);
         }
 
         if(P_on >= P_off)
@@ -156,8 +173,8 @@ namespace ClosedEyeTrigger
                           35.81387484,25.47700201,24.14335124,22.39188861,26.60156105,20.39004809,28.91405261,38.45561384,34.50494698,
                           43.36318324,26.21557937,27.14167731,20.18916073,27.51200176};
 
-            bool[] trigger ={false,false,false,false,false,false,false,false,false,false,false,false,true,true,true,
-                           false,false,false,false,true,true,true,false,false,false,false,true,true,true,true,false,false};
+            bool[] trigger ={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
+                           false,false,false,true,true,true,true,true,true,false,false,false,false,false,false,false,false};
 
             foreach(double ele in a)
                 alpha.Add(ele);
@@ -172,7 +189,8 @@ namespace ClosedEyeTrigger
             nb.input(alpha, beta, tri);
             nb.Find_StablePoint();
             nb.AnalysisTranningSet();
-           // nb.classify(alpha, beta);
+            bool t =nb.classify(20, 20);
+            Console.WriteLine(t);
             Console.ReadKey();
         }
     }
