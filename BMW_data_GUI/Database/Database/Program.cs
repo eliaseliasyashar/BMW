@@ -98,7 +98,7 @@ namespace EEGDatabase
                 sqlite_cmd.CommandText = "CREATE TABLE " + user + "_EEG( AF3 double , F7 double , F3 double,FC5 double, T7 double,P7 double,O1 double, O2 double,P8 double ,T8 double,FC6 double,F4 double,F8 double,AF4 double,TimeStamp double,section integer, ComputerTime varchar);";
                     sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_EEG\n");
-                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "( Alpha double, Beta double, EyeClosed boolean);";
+                sqlite_cmd.CommandText = "CREATE TABLE " + user + "_BandPower" + "( Alpha double, Beta double, EyeClosed bool);";
                 sqlite_cmd.ExecuteNonQuery();
                 Console.WriteLine("Creatring Table " + user + "_BandPower\n");
                 sqlite_cmd.CommandText = "CREATE TABLE " + user + "_Signal" + "(GYROX double ,GYROY double ,ES_TIMESTAMP double ,FUNC_ID double,FUNC_VALUE double,MARKER double,SYNC_SIGNAL double, section integer) ;";
@@ -160,7 +160,7 @@ namespace EEGDatabase
             sqlite_conn.Close();
         }
 
-         void BandPowerInsert(String UserName,double Alpha , double Beta, Boolean EyeClosed)
+         void BandPowerInsert(String UserName,double Alpha , double Beta, bool EyeClosed)
         {
             // We use these three SQLite objects:
             SQLiteConnection sqlite_conn;
@@ -172,7 +172,7 @@ namespace EEGDatabase
             sqlite_conn.Open();
             // create a new SQL command:
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (Alpha , Beta ,EyeClosed ) VALUES('"+user+"',"+Alpha+","+Beta+","+EyeClosed+"');";
+            sqlite_cmd.CommandText = "INSERT INTO " + user + "_BandPower (Alpha , Beta ,EyeClosed ) VALUES( "+Alpha +","+Beta+",'"+EyeClosed+"');";
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
@@ -227,7 +227,7 @@ namespace EEGDatabase
          }
 
         
-        void Loa_EEGData(String User )
+        void Load_EEGData(String User )
         {
             Console.WriteLine("Start Loading EEG Data");
            // We use these three SQLite objects:
@@ -314,11 +314,14 @@ namespace EEGDatabase
             
             db.SetUserName("Che");
             db.CreateUser();
-
+            db.BandPowerInsert("Che",23.22, 23.00, true);
            db.SignalInsert("Che",23.3, 23.4, 12.2, 54.5, 34.3, 3.12, 56.7, 2);
            db.Load_Signal("Che");
+           db.Load_BandPowerData("che");
          //  db.GYROX.Peek();
-         Console.WriteLine(  db.GYROX.Peek());
+         Console.WriteLine(  db.alpha_o1.Peek());
+         Console.WriteLine(db.beta_o1.Peek());
+         Console.WriteLine(db.closedEye.Peek());
             Console.ReadKey();
         }
         #endregion
