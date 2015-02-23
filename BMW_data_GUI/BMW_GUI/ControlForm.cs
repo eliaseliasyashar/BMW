@@ -590,6 +590,11 @@ namespace BMW_GUI
             channel.RemoveRange(0, 64);
         }
 
+        private void textBox_boredom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
       //  string filename = "outfile_testing.csv"; // output filename
  
 
